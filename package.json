@@ -1,0 +1,43 @@
+{
+  "name": "@spautz/readme",
+  "private": true,
+  "description": "My opinionated template for a npm library repo",
+  "license": "MIT",
+  "homepage": "https://github.com/spautz/spautz#readme",
+  "bugs": "https://github.com/spautz/spautz/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spautz/spautz.git"
+  },
+  "author": {
+    "name": "Steven Pautz",
+    "url": "https://github.com/spautz"
+  },
+  "engines": {
+    "node": "^22",
+    "pnpm": "^9"
+  },
+  "packageManager": "pnpm@9.12.1",
+  "type": "module",
+  "scripts": {
+    "____ HOOKS _________________________________________________________": "",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "husky",
+    "husky:precommit": "lint-staged",
+    "husky:prepush": "pnpm run format:verify",
+    "____ INDIVIDUAL COMMANDS ___________________________________________": "",
+    "format": "prettier --write .",
+    "format:verify": "prettier --list-different ."
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "husky": "9.1.6",
+    "lint-staged": "15.2.10",
+    "prettier": "3.3.3"
+  },
+  "lint-staged": {
+    "*.{cjs,cts,css,html,js,jsx,json,less,md,mjs,mts,scss,ts,tsx,yaml}": [
+      "prettier --write"
+    ]
+  }
+}
