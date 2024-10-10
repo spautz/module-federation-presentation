@@ -1,13 +1,13 @@
 {
-  "name": "@spautz/readme",
+  "name": "@spautz/module-federation-presentation",
   "private": true,
-  "description": "My opinionated template for a npm library repo",
+  "description": "Code to accompany a Frontend Guild talk",
   "license": "MIT",
-  "homepage": "https://github.com/spautz/spautz#readme",
-  "bugs": "https://github.com/spautz/spautz/issues",
+  "homepage": "https://github.com/spautz/module-federation-presentation#readme",
+  "bugs": "https://github.com/spautz/module-federation-presentation/issues",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/spautz/spautz.git"
+    "url": "git+https://github.com/spautz/module-federation-presentation.git"
   },
   "author": {
     "name": "Steven Pautz",
