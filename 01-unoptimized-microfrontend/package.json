@@ -1,0 +1,44 @@
+{
+  "name": "@spautz/module-federation-presentation--01-unoptimized-microfrontend-workspace",
+  "private": true,
+  "description": "Workspace setup for an unoptimized microfrontend demo, for a presentation",
+  "license": "MIT",
+  "homepage": "https://github.com/spautz/module-federation-presentation#readme",
+  "bugs": "https://github.com/spautz/module-federation-presentation/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/spautz/module-federation-presentation.git",
+    "directory": "01-unoptimized-microfrontend"
+  },
+  "author": {
+    "name": "Steven Pautz",
+    "url": "https://github.com/spautz/"
+  },
+  "engines": {
+    "node": "^20 || ^22",
+    "pnpm": "^9"
+  },
+  "packageManager": "pnpm@9.12.1",
+  "type": "module",
+  "scripts": {
+    "____ HOOKS _________________________________________________________": "",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "turbo run dependencies",
+    "____ WORKSPACE COMMANDS ____________________________________________": "",
+    "clean": "pnpm run deploy:clean && rimraf --glob ./node_modules/.cache ./.turbo/{cache,runs,*.log} ./*.log && pnpm --parallel -r run clean",
+    "publish": "turbo run build",
+    "publish:clean": "rimraf ./deploy",
+    "test": "turbo run test"
+  },
+  "devDependencies": {
+    "@vitest/coverage-v8": "2.1.2",
+    "@vitest/ui": "2.1.2",
+    "glob": "11.0.0",
+    "only-allow": "1.2.1",
+    "rimraf": "6.0.1",
+    "turbo": "2.1.3",
+    "typescript": "5.6.3",
+    "vite": "5.4.8",
+    "vitest": "2.1.2"
+  }
+}
