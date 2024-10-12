@@ -42,7 +42,7 @@
 
 /* ========================================================================= */
 
-._header_4i9g7_45 {
+._header_139kn_45 {
   background-color: var(--header-bg);
   color: var(--header-text);
   display: flex;
@@ -57,35 +57,9 @@
     max-width: var(--content-width);
     padding: var(--content-gutter);
   }
-
-  header {
-    display: grid;
-    flex: 1;
-    grid-auto-columns: 1fr;
-    grid-template-areas:
-      'title title'
-      'nav-left  nav-right';
-    justify-content: center;
-    gap: 0.5em;
-
-    h1 {
-      grid-area: title;
-      justify-self: start;
-    }
-
-    nav:first-of-type {
-      grid-area: nav-left;
-      justify-self: start;
-    }
-
-    nav:last-of-type {
-      grid-area: nav-right;
-      justify-self: end;
-    }
-  }
 }
 
-._body_4i9g7_88 {
+._body_139kn_62 {
   border: 1px dashed var(--body-border);
   display: flex;
   flex-direction: column;

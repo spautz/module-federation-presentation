@@ -1,16 +1,22 @@
+import { useEffect, useState } from 'react';
+
+import { loadMicrofrontendOne, loadMicrofrontendTwo } from './loadMicrofrontends.js';
+
 import classes from './App.module.css';
 
 function App() {
+  const [count, setCount] = useState(0);
+
+  // Load and immediately render microfrontend-one
+  useEffect(() => {
+    const placeholderEl = document.getElementById('placeholder-one')!;
+    loadMicrofrontendOne(placeholderEl);
+  }, []);
+
   return (
     <>
       <div className={classes.header}>
-        <div id="microfrontend-one-placeholder">
-          <header>
-            <h1>This is a header from Microfrontend-One</h1>
-            <nav>Here's some text</nav>
-            <nav>More text</nav>
-          </header>
-        </div>
+        <div id="placeholder-one" />
       </div>
 
       <main className={classes.body}>
@@ -20,21 +26,27 @@ function App() {
         <p>Here's some generic content.</p>
         <p>Here's some generic content.</p>
         <p>Here's some generic content.</p>
-        <form>
+        <p>
+          <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
+        </p>
+        <p>
           <button
             onClick={(e) => {
-              console.log('onClick()', e);
+              const placeholderEl = document.getElementById('placeholder-two')!;
+              loadMicrofrontendTwo(placeholderEl);
               e.preventDefault();
             }}
           >
-            Load Microfrontend-Two
+            Load Microfrontend-two
           </button>
-        </form>
+        </p>
       </main>
 
       <div className={classes.body}>
-        <h2>Placeholder</h2>
-        <p>The host app rendered this. It will be replaced once Microfrontend-Two loads.</p>
+        <div id="placeholder-two">
+          <h2>Placeholder</h2>
+          <p>The host app rendered this. It will be replaced once Microfrontend-two loads.</p>
+        </div>
       </div>
     </>
   );

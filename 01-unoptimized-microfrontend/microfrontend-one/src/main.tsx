@@ -1,16 +1,18 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
+
 import App from './App.tsx';
-import './index.css';
 
-console.log('Microfrontend One');
+function render(rootElement: HTMLElement) {
+  console.log('Rendering Microfrontend-one: ', rootElement);
 
-createRoot(document.getElementById('root')!).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-);
+  createRoot(rootElement).render(
+    <StrictMode>
+      <App />
+    </StrictMode>,
+  );
+}
 
-const microfrontendOne = 'Microfrontend One';
+console.log('This is main.js in Microfrontend-one');
 
-export default microfrontendOne;
+export { render };

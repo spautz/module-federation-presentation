@@ -10,7 +10,9 @@ export default defineConfig({
     lib: {
       entry: 'src/main.tsx',
       formats: ['es'],
+      fileName: 'index',
     },
+    manifest: true,
     minify: false,
     sourcemap: true,
   },

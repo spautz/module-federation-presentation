@@ -1,40 +1,3 @@
-(function polyfill() {
-  const relList = document.createElement("link").relList;
-  if (relList && relList.supports && relList.supports("modulepreload")) {
-    return;
-  }
-  for (const link of document.querySelectorAll('link[rel="modulepreload"]')) {
-    processPreload(link);
-  }
-  new MutationObserver((mutations) => {
-    for (const mutation of mutations) {
-      if (mutation.type !== "childList") {
-        continue;
-      }
-      for (const node of mutation.addedNodes) {
-        if (node.tagName === "LINK" && node.rel === "modulepreload")
-          processPreload(node);
-      }
-    }
-  }).observe(document, { childList: true, subtree: true });
-  function getFetchOpts(link) {
-    const fetchOpts = {};
-    if (link.integrity) fetchOpts.integrity = link.integrity;
-    if (link.referrerPolicy) fetchOpts.referrerPolicy = link.referrerPolicy;
-    if (link.crossOrigin === "use-credentials")
-      fetchOpts.credentials = "include";
-    else if (link.crossOrigin === "anonymous") fetchOpts.credentials = "omit";
-    else fetchOpts.credentials = "same-origin";
-    return fetchOpts;
-  }
-  function processPreload(link) {
-    if (link.ep)
-      return;
-    link.ep = true;
-    const fetchOpts = getFetchOpts(link);
-    fetch(link.href, fetchOpts);
-  }
-})();
 var jsxRuntime = { exports: {} };
 var reactJsxRuntime_production_min = {};
 var react = { exports: {} };
@@ -6999,44 +6962,42 @@ var m = reactDomExports;
   createRoot = m.createRoot;
   m.hydrateRoot;
 }
-const header = "_header_4i9g7_45";
-const body = "_body_4i9g7_88";
+const dataTable = "_dataTable_1o904_1";
 const classes = {
-  header,
-  body
+  dataTable
 };
 function App() {
+  const [count, setCount] = reactExports.useState(0);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: classes.header, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { id: "microfrontend-one-placeholder", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: "This is a header from Microfrontend-One" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { children: "Here's some text" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { children: "More text" })
-    ] }) }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: classes.body, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "This is the host app" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Here's some generic content." }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Here's some generic content." }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Here's some generic content." }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Here's some generic content." }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Here's some generic content." }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("form", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-        "button",
-        {
-          onClick: (e) => {
-            console.log("onClick()", e);
-            e.preventDefault();
-          },
-          children: "Load Microfrontend-Two"
-        }
-      ) })
+    /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "This is a header from Microfrontend-two" }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { className: classes.dataTable, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: "1" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: "Alice" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: "2" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: "Bob" })
+      ] }),
+      /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
+        /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: "3" }),
+        /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: "Carol" })
+      ] })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: classes.body, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Placeholder" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "The host app rendered this. It will be replaced once Microfrontend-Two loads." })
-    ] })
+    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { onClick: () => setCount((count2) => count2 + 1), children: [
+      "count is ",
+      count
+    ] }) })
   ] });
 }
-createRoot(document.getElementById("root")).render(
-  /* @__PURE__ */ jsxRuntimeExports.jsx(reactExports.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
-);
-//# sourceMappingURL=index-Byks2rWB.js.map
+function render(rootElement) {
+  console.log("Rendering Microfrontend-two");
+  createRoot(rootElement).render(
+    /* @__PURE__ */ jsxRuntimeExports.jsx(reactExports.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
+  );
+}
+console.log("Loaded Microfrontend-two");
+export {
+  render
+};
+//# sourceMappingURL=index.js.map

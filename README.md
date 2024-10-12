@@ -39,4 +39,4 @@ approaches that avoid the pitfalls and provide a better architecture overall.
 - Each demo is a pnpm workspace that represents separate projects owned by separate teams: a host app with two
   microfrontends (one rendered initially, one invoked later).
 - To make demos easy, a mock 'deploy' copies files to a single directory which may be served locally. This simplifies
-  and sidesteps issues with local dev servers. Each `deploy/` directory is committed to the repo.
+  the demo but prevents having a unified server for local dev. Each `deploy/` directory is committed to the repo.

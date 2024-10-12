@@ -9,8 +9,9 @@ export default defineConfig({
   build: {
     minify: false,
     sourcemap: true,
+
+    rollupOptions: {
+      external: ['/microfrontend-one/index.js', '/microfrontend-two/index.js'],
+    },
   },
-  // css:{
-  //   modules
-  // }
 });
