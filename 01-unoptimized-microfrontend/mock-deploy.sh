@@ -12,7 +12,6 @@ source ./scripts/helpers/helpers.sh
 
 ###################################################################################################
 
-source ./scripts/setup-local-environment.sh
 ./scripts/build-everything.sh
 
 rm -rf deploy
@@ -23,6 +22,8 @@ for PROJECT in 'microfrontend-one' 'microfrontend-two' ; do
 done
 
 ls -al deploy/ deploy/*
+
+pnpm run demo:analyze --html mock-deploy-analysis.html
 
 ###################################################################################################
 

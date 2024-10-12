@@ -19,7 +19,7 @@ if ! command_exists pnpm; then
 fi
 
 # Validate against engines set in the workspace package.json
-run_npm_command check-node-version --package --print
+pnpm exec check-node-version --package --print
 
 ###################################################################################################
 

@@ -6,18 +6,23 @@ echo "### Begin ${THIS_SCRIPT_NAME}"
 # Fail if anything in here fails
 set -e
 # Run from the repo root
-pushd "$(dirname -- "${BASH_SOURCE[0]:-$0}")/.."
-
-source ./scripts/helpers/helpers.sh
+pushd "$(dirname -- "${BASH_SOURCE[0]:-$0}")"
 
 ###################################################################################################
 
-./scripts/check-environment.sh
+pnpm install --frozen-lockfile --prefer-offline
+pnpm run format
 
-pnpm_or_bun install --frozen-lockfile --prefer-offline
+for DEMO_DIR in '01-unoptimized-microfrontend' ; do
+  pushd $DEMO_DIR
 
-pnpm_or_bun run test
-pnpm_or_bun run build
+  pnpm install --frozen-lockfile --prefer-offline
+  ./mock-deploy.sh
+
+  popd
+done
+
+git status
 
 ###################################################################################################
 

@@ -55,6 +55,7 @@ playwright-report/
 .turbo/
 _fresh/
 build/
+deploy/
 dist/
 dist-ssr/
 legacy-types/
