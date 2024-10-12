@@ -1,5 +1,5 @@
 {
-  "name": "@spautz/module-federation-presentation--01-unoptimized-microfrontend--host-app",
+  "name": "@spautz/module-federation-presentation--02-basic-federation--microfrontend-two",
   "private": true,
   "type": "module",
   "scripts": {

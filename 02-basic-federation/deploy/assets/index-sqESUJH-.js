@@ -1,3 +1,40 @@
+(function polyfill() {
+  const relList = document.createElement("link").relList;
+  if (relList && relList.supports && relList.supports("modulepreload")) {
+    return;
+  }
+  for (const link of document.querySelectorAll('link[rel="modulepreload"]')) {
+    processPreload(link);
+  }
+  new MutationObserver((mutations) => {
+    for (const mutation of mutations) {
+      if (mutation.type !== "childList") {
+        continue;
+      }
+      for (const node of mutation.addedNodes) {
+        if (node.tagName === "LINK" && node.rel === "modulepreload")
+          processPreload(node);
+      }
+    }
+  }).observe(document, { childList: true, subtree: true });
+  function getFetchOpts(link) {
+    const fetchOpts = {};
+    if (link.integrity) fetchOpts.integrity = link.integrity;
+    if (link.referrerPolicy) fetchOpts.referrerPolicy = link.referrerPolicy;
+    if (link.crossOrigin === "use-credentials")
+      fetchOpts.credentials = "include";
+    else if (link.crossOrigin === "anonymous") fetchOpts.credentials = "omit";
+    else fetchOpts.credentials = "same-origin";
+    return fetchOpts;
+  }
+  function processPreload(link) {
+    if (link.ep)
+      return;
+    link.ep = true;
+    const fetchOpts = getFetchOpts(link);
+    fetch(link.href, fetchOpts);
+  }
+})();
 var jsxRuntime = { exports: {} };
 var reactJsxRuntime_production_min = {};
 var react = { exports: {} };
@@ -6962,25 +6999,135 @@ var m = reactDomExports;
   createRoot = m.createRoot;
   m.hydrateRoot;
 }
-const header = "_header_1wrxw_1";
+const scriptRel = "modulepreload";
+const assetsURL = function(dep) {
+  return "/" + dep;
+};
+const seen = {};
+const __vitePreload = function preload(baseModule, deps, importerUrl) {
+  let promise = Promise.resolve();
+  if (deps && deps.length > 0) {
+    document.getElementsByTagName("link");
+    const cspNonceMeta = document.querySelector(
+      "meta[property=csp-nonce]"
+    );
+    const cspNonce = (cspNonceMeta == null ? void 0 : cspNonceMeta.nonce) || (cspNonceMeta == null ? void 0 : cspNonceMeta.getAttribute("nonce"));
+    promise = Promise.allSettled(
+      deps.map((dep) => {
+        dep = assetsURL(dep);
+        if (dep in seen) return;
+        seen[dep] = true;
+        const isCss = dep.endsWith(".css");
+        const cssSelector = isCss ? '[rel="stylesheet"]' : "";
+        if (document.querySelector(`link[href="${dep}"]${cssSelector}`)) {
+          return;
+        }
+        const link = document.createElement("link");
+        link.rel = isCss ? "stylesheet" : scriptRel;
+        if (!isCss) {
+          link.as = "script";
+        }
+        link.crossOrigin = "";
+        link.href = dep;
+        if (cspNonce) {
+          link.setAttribute("nonce", cspNonce);
+        }
+        document.head.appendChild(link);
+        if (isCss) {
+          return new Promise((res, rej) => {
+            link.addEventListener("load", res);
+            link.addEventListener(
+              "error",
+              () => rej(new Error(`Unable to preload CSS for ${dep}`))
+            );
+          });
+        }
+      })
+    );
+  }
+  function handlePreloadError(err) {
+    const e = new Event("vite:preloadError", {
+      cancelable: true
+    });
+    e.payload = err;
+    window.dispatchEvent(e);
+    if (!e.defaultPrevented) {
+      throw err;
+    }
+  }
+  return promise.then((res) => {
+    for (const item of res || []) {
+      if (item.status !== "rejected") continue;
+      handlePreloadError(item.reason);
+    }
+    return baseModule().catch(handlePreloadError);
+  });
+};
+async function loadMicrofrontend(basePath) {
+  const pendingModule = __vitePreload(() => import(`${basePath}/index.js`), true ? [] : void 0);
+  const stylesheetEl = document.createElement("link");
+  stylesheetEl.rel = "stylesheet";
+  stylesheetEl.type = "text/css";
+  stylesheetEl.href = `${basePath}/style.css`;
+  document.getElementsByTagName("head")[0].appendChild(stylesheetEl);
+  const microfrontendModule = await pendingModule;
+  console.log(`Loaded module "${basePath}": `, microfrontendModule);
+  return microfrontendModule;
+}
+async function loadMicrofrontendOne(rootEl, options) {
+  return loadMicrofrontend("/microfrontend-one").then((microfrontendOne) => {
+    microfrontendOne.render(rootEl, options);
+  });
+}
+async function loadMicrofrontendTwo(rootEl, options) {
+  return loadMicrofrontend("/microfrontend-two").then((microfrontendOne) => {
+    microfrontendOne.render(rootEl, options);
+  });
+}
+const header = "_header_139kn_45";
+const body = "_body_139kn_62";
 const classes = {
-  header
+  header,
+  body
 };
 function App() {
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { className: classes.header, children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: "This is a header from Microfrontend-one" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { children: "Here's some text" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { children: "More text" })
+  const [count, setCount] = reactExports.useState(0);
+  reactExports.useEffect(() => {
+    const placeholderEl = document.getElementById("placeholder-one");
+    loadMicrofrontendOne(placeholderEl);
+  }, []);
+  return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: classes.header, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { id: "placeholder-one" }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: classes.body, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "This is the host app" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Here's some generic content." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Here's some generic content." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Here's some generic content." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Here's some generic content." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Here's some generic content." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { onClick: () => setCount((count2) => count2 + 1), children: [
+        "count is ",
+        count
+      ] }) }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "button",
+        {
+          onClick: (e) => {
+            const placeholderEl = document.getElementById("placeholder-two");
+            loadMicrofrontendTwo(placeholderEl);
+            e.preventDefault();
+          },
+          children: "Load Microfrontend-two"
+        }
+      ) })
+    ] }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: classes.body, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { id: "placeholder-two", children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Placeholder" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "The host app rendered this. It will be replaced once Microfrontend-two loads." })
+    ] }) })
   ] });
 }
-function render(rootElement) {
-  console.log("Rendering Microfrontend-one: ", rootElement);
-  createRoot(rootElement).render(
-    /* @__PURE__ */ jsxRuntimeExports.jsx(reactExports.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
-  );
-}
-console.log("This is main.js in Microfrontend-one");
-export {
-  render
-};
-//# sourceMappingURL=index.js.map
+createRoot(document.getElementById("root")).render(
+  /* @__PURE__ */ jsxRuntimeExports.jsx(reactExports.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
+);
+//# sourceMappingURL=index-sqESUJH-.js.map

@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig-base.typecheck.json",
+  // Check each package and demo, plus all config files
+  // Each external-test has its own tsconfig, following the conventions of its framework, so they're not included
+  "include": [
+    "*.ts",
+    "host-app/*.ts",
+    "host-app/src",
+    "microfrontend-one/*.ts",
+    "microfrontend-one/src",
+    "microfrontend-two/*.ts",
+    "microfrontend-two/src"
+  ]
+}

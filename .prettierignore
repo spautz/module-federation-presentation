@@ -4,6 +4,9 @@
 
 *.log
 
+deploy/
+mock-deploy-analysis.html
+
 # Autoformatting lockfiles is slow and doesn't bring any benefits, so skip them
 package-lock.json
 pnpm-lock.yaml
@@ -55,7 +58,6 @@ playwright-report/
 .turbo/
 _fresh/
 build/
-deploy/
 dist/
 dist-ssr/
 legacy-types/

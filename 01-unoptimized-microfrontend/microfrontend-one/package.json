@@ -1,7 +1,6 @@
 {
-  "name": "microfrontend-one",
+  "name": "@spautz/module-federation-presentation--01-unoptimized-microfrontend--microfrontend-one",
   "private": true,
-  "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
