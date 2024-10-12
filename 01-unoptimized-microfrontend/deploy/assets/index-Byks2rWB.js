@@ -6999,31 +6999,44 @@ var m = reactDomExports;
   createRoot = m.createRoot;
   m.hydrateRoot;
 }
-const reactLogo = "/assets/react-CHdo91hT.svg";
-const viteLogo = "/vite.svg";
+const header = "_header_4i9g7_45";
+const body = "_body_4i9g7_88";
+const classes = {
+  header,
+  body
+};
 function App() {
-  const [count, setCount] = reactExports.useState(0);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://vitejs.dev", target: "_blank", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: viteLogo, className: "logo", alt: "Vite logo" }) }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("a", { href: "https://react.dev", target: "_blank", children: /* @__PURE__ */ jsxRuntimeExports.jsx("img", { src: reactLogo, className: "logo react", alt: "React logo" }) })
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: classes.header, children: /* @__PURE__ */ jsxRuntimeExports.jsx("div", { id: "microfrontend-one-placeholder", children: /* @__PURE__ */ jsxRuntimeExports.jsxs("header", { children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: "This is a header from Microfrontend-One" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { children: "Here's some text" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("nav", { children: "More text" })
+    ] }) }) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: classes.body, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "This is the host app" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Here's some generic content." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Here's some generic content." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Here's some generic content." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Here's some generic content." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Here's some generic content." }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("form", { children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+        "button",
+        {
+          onClick: (e) => {
+            console.log("onClick()", e);
+            e.preventDefault();
+          },
+          children: "Load Microfrontend-Two"
+        }
+      ) })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("h1", { children: "Vite + React" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: "card", children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { onClick: () => setCount((count2) => count2 + 1), children: [
-        "count is ",
-        count
-      ] }),
-      /* @__PURE__ */ jsxRuntimeExports.jsxs("p", { children: [
-        "Edit ",
-        /* @__PURE__ */ jsxRuntimeExports.jsx("code", { children: "src/App.tsx" }),
-        " and save to test HMR"
-      ] })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("p", { className: "read-the-docs", children: "Click on the Vite and React logos to learn more" })
+    /* @__PURE__ */ jsxRuntimeExports.jsxs("div", { className: classes.body, children: [
+      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Placeholder" }),
+      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "The host app rendered this. It will be replaced once Microfrontend-Two loads." })
+    ] })
   ] });
 }
 createRoot(document.getElementById("root")).render(
   /* @__PURE__ */ jsxRuntimeExports.jsx(reactExports.StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
 );
-//# sourceMappingURL=index-Bo8laGvK.js.map
+//# sourceMappingURL=index-Byks2rWB.js.map

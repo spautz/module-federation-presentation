@@ -1,0 +1,95 @@
+:root {
+  /* globals */
+  --font-default: Inter, ui-sans-serif, system-ui, sans-serif;
+  --page-bg: white;
+  --page-text: #333;
+  --content-gutter: 1em;
+  --content-width: 100%;
+
+  /* blocks for <App> */
+  --header-bg: #006699;
+  --header-text: #eeeeee;
+  --body-border: #333333;
+}
+
+@media screen and (min-width: 750px) {
+  :root {
+    --content-width: 750px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* globals */
+    --page-bg: black;
+    --page-text: #eeeeee;
+
+    /* blocks for <App> */
+    --header-bg: #00aaee;
+    --header-text: #333333;
+    --body-border: #cccccc;
+  }
+}
+
+/* ========================================================================= */
+
+:root {
+  background-color: var(--page-bg);
+  color: var(--page-text);
+  color-scheme: light dark;
+  font-family: var(--font-default), sans-serif;
+}
+
+/* ========================================================================= */
+
+.header {
+  background-color: var(--header-bg);
+  color: var(--header-text);
+  display: flex;
+  justify-items: center;
+  justify-content: center;
+
+  & > div {
+    flex: 1;
+    display: flex;
+    align-self: center;
+    justify-self: center;
+    max-width: var(--content-width);
+    padding: var(--content-gutter);
+  }
+
+  header {
+    display: grid;
+    flex: 1;
+    grid-auto-columns: 1fr;
+    grid-template-areas:
+      'title title'
+      'nav-left  nav-right';
+    justify-content: center;
+    gap: 0.5em;
+
+    h1 {
+      grid-area: title;
+      justify-self: start;
+    }
+
+    nav:first-of-type {
+      grid-area: nav-left;
+      justify-self: start;
+    }
+
+    nav:last-of-type {
+      grid-area: nav-right;
+      justify-self: end;
+    }
+  }
+}
+
+.body {
+  border: 1px dashed var(--body-border);
+  display: flex;
+  flex-direction: column;
+  margin: var(--content-gutter) auto;
+  padding: var(--content-gutter);
+  width: var(--content-width);
+}

@@ -13,7 +13,8 @@ pushd "$(dirname -- "${BASH_SOURCE[0]:-$0}")"
 pnpm install --frozen-lockfile --prefer-offline
 pnpm run format
 
-for DEMO_DIR in '01-unoptimized-microfrontend' ; do
+for DEMO_DIR in $(ls | grep "^[0-9]\+-") ; do
+  echo "Updating $DEMO_DIR :"
   pushd $DEMO_DIR
 
   pnpm install --frozen-lockfile --prefer-offline

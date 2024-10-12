@@ -1,29 +1,41 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+import classes from './App.module.css';
 
 function App() {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className={classes.header}>
+        <div id="microfrontend-one-placeholder">
+          <header>
+            <h1>This is a header from Microfrontend-One</h1>
+            <nav>Here's some text</nav>
+            <nav>More text</nav>
+          </header>
+        </div>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
+
+      <main className={classes.body}>
+        <h2>This is the host app</h2>
+        <p>Here's some generic content.</p>
+        <p>Here's some generic content.</p>
+        <p>Here's some generic content.</p>
+        <p>Here's some generic content.</p>
+        <p>Here's some generic content.</p>
+        <form>
+          <button
+            onClick={(e) => {
+              console.log('onClick()', e);
+              e.preventDefault();
+            }}
+          >
+            Load Microfrontend-Two
+          </button>
+        </form>
+      </main>
+
+      <div className={classes.body}>
+        <h2>Placeholder</h2>
+        <p>The host app rendered this. It will be replaced once Microfrontend-Two loads.</p>
       </div>
-      <p className="read-the-docs">Click on the Vite and React logos to learn more</p>
     </>
   );
 }
