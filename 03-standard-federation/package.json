@@ -1,14 +1,14 @@
 {
-  "name": "@spautz/module-federation-presentation--02-basic-federation-workspace",
+  "name": "@spautz/module-federation-presentation--03-standard-federation-workspace",
   "private": true,
-  "description": "Workspace setup for an unoptimized microfrontend demo, for a presentation",
+  "description": "Workspace setup for an standard module federation demo, for a presentation",
   "license": "MIT",
   "homepage": "https://github.com/spautz/module-federation-presentation#readme",
   "bugs": "https://github.com/spautz/module-federation-presentation/issues",
   "repository": {
     "type": "git",
     "url": "https://github.com/spautz/module-federation-presentation.git",
-    "directory": "02-basic-federation"
+    "directory": "03-standard-federation"
   },
   "author": {
     "name": "Steven Pautz",

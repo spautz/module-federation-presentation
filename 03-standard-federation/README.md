@@ -1,4 +1,4 @@
-# Demo 1: Unoptimized Microfrontend
+# Demo 3: Standard Microfrontends with Module Federation
 
 ```shell
 pnpm install

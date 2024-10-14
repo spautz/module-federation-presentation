@@ -1,5 +1,5 @@
 {
-  "name": "@spautz/module-federation-presentation--03-standard-federation--host-app",
+  "name": "@spautz/module-federation-presentation--03-standard-federation--header-mfe",
   "private": true,
   "type": "module",
   "scripts": {

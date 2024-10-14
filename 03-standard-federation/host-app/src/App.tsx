@@ -1,9 +1,9 @@
 import { Suspense, lazy, useState } from 'react';
 
 // @ts-ignore
-import MicrofrontendOne from 'microfrontendOne/App';
+import HeaderMFE from 'header-mfe/Header';
 // @ts-ignore
-const MicrofrontendTwo = lazy(() => import('microfrontendTwo/App'));
+const Table = lazy(() => import('table-mfe/Table'));
 
 import classes from './App.module.css';
 
@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <div className={classes.header}>
-        <MicrofrontendOne />
+        <HeaderMFE />
       </div>
 
       <main className={classes.body}>
@@ -37,7 +37,7 @@ function App() {
             </>
           }
         >
-          <MicrofrontendTwo />
+          <Table />
         </Suspense>
       </div>
     </>

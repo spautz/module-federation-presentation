@@ -32,7 +32,7 @@ run_command "rm -rf
   $TMPDIR/react-*
   "
 
-for DIRECTORY in '.' 'host-app' 'microfrontend-*' 'packages/*' ; do
+for DIRECTORY in '.' 'host-app' '*-mfe' 'packages/*' ; do
   run_command "rm -rf
     $DIRECTORY/.turbo/
     $DIRECTORY/.yalc/

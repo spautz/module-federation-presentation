@@ -15,9 +15,9 @@ source ./scripts/helpers/helpers.sh
 ./scripts/build-everything.sh
 
 rm -rf deploy
-cp -R ./host-app/dist/ ./deploy
+mkdir deploy
 
-for PROJECT in 'microfrontend-one' 'microfrontend-two' ; do
+for PROJECT in 'host-app' 'header-mfe' 'table-mfe' ; do
   cp -R ./$PROJECT/dist/ ./deploy/$PROJECT
 done
 

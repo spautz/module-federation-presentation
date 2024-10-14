@@ -6,9 +6,11 @@
     "*.ts",
     "host-app/*.ts",
     "host-app/src",
-    "microfrontend-one/*.ts",
-    "microfrontend-one/src",
-    "microfrontend-two/*.ts",
-    "microfrontend-two/src"
+    "header-mfe/*.ts",
+    "header-mfe/src",
+    "table-mfe/*.ts",
+    "table-mfe/src",
+    "packages/*/*.ts",
+    "packages/*/src"
   ]
 }
