@@ -23,7 +23,7 @@ done
 
 ls -al deploy/ deploy/*
 
-pnpm run demo:analyze --html mock-deploy-analysis.html
+pnpm run demo:analyze --html deploy-analysis.html
 
 ###################################################################################################
 

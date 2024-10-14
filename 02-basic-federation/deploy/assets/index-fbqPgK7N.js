@@ -579,10 +579,16 @@ function App() {
         count
       ] }) })
     ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: classes.body, children: /* @__PURE__ */ jsxRuntimeExports.jsx(Suspense, { fallback: /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Placeholder" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "The host app rendered this. It will be replaced once Microfrontend-two loads." })
-    ] }), children: /* @__PURE__ */ jsxRuntimeExports.jsx(MicrofrontendTwo, {}) }) })
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: classes.body, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
+      Suspense,
+      {
+        fallback: /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
+          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Placeholder" }),
+          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "The host app rendered this. It will be replaced once Microfrontend-two loads." })
+        ] }),
+        children: /* @__PURE__ */ jsxRuntimeExports.jsx(MicrofrontendTwo, {})
+      }
+    ) })
   ] });
 }
 

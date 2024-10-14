@@ -1,5 +1,5 @@
 import { importShared } from './__federation_fn_import-BtR-3Iy5.js';
-import App, { j as jsxRuntimeExports } from './__federation_expose_App-Z3FBv0vC.js';
+import App, { j as jsxRuntimeExports } from './__federation_expose_App-BZex6dc1.js';
 import { r as reactDomExports } from './__federation_shared_react-dom-81eQxVv-.js';
 
 var createRoot;
@@ -19,4 +19,4 @@ function render(rootElement) {
 console.log("This is main.js in Microfrontend-two");
 
 export { render as default, render };
-//# sourceMappingURL=__federation_expose_Render-Jwe163_M.js.map
+//# sourceMappingURL=__federation_expose_Render-aHVt60Iy.js.map

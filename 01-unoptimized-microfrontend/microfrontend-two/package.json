@@ -3,6 +3,7 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "clean": "rimraf --glob ./node_modules/.cache ./.turbo ./dist ./*.log",
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",

@@ -6970,7 +6970,7 @@ function App() {
   const [count, setCount] = reactExports.useState(0);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
     /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "This is a header from Microfrontend-two" }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("table", { className: classes.dataTable, children: [
+    /* @__PURE__ */ jsxRuntimeExports.jsx("table", { className: classes.dataTable, children: /* @__PURE__ */ jsxRuntimeExports.jsxs("tbody", { children: [
       /* @__PURE__ */ jsxRuntimeExports.jsxs("tr", { children: [
         /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: "1" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: "Alice" })
@@ -6983,7 +6983,7 @@ function App() {
         /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: "3" }),
         /* @__PURE__ */ jsxRuntimeExports.jsx("td", { children: "Carol" })
       ] })
-    ] }),
+    ] }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { onClick: () => setCount((count2) => count2 + 1), children: [
       "count is ",
       count

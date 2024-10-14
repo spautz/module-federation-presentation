@@ -18,7 +18,7 @@ for DEMO_DIR in $(ls | grep "^[0-9]\+-") ; do
   pushd $DEMO_DIR
 
   pnpm install --frozen-lockfile --prefer-offline
-  ./mock-deploy.sh
+  ./update-deploy.sh
 
   popd
 done

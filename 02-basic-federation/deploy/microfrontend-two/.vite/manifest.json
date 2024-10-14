@@ -15,7 +15,7 @@
     "isEntry": true
   },
   "src/App.tsx": {
-    "file": "assets/__federation_expose_App-Z3FBv0vC.js",
+    "file": "assets/__federation_expose_App-BZex6dc1.js",
     "name": "__federation_expose_App",
     "src": "src/App.tsx",
     "isEntry": true,
@@ -25,7 +25,7 @@
     ]
   },
   "src/main.tsx": {
-    "file": "assets/__federation_expose_Render-Jwe163_M.js",
+    "file": "assets/__federation_expose_Render-aHVt60Iy.js",
     "name": "__federation_expose_Render",
     "src": "src/main.tsx",
     "isEntry": true,
