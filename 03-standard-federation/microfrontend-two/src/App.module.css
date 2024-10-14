@@ -1,0 +1,9 @@
+.dataTable {
+  border: 1px solid var(--body-border);
+  margin: 1em;
+
+  td {
+    border: 1px solid var(--body-border);
+    padding: 0.25em;
+  }
+}

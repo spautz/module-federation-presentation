@@ -1,0 +1,54 @@
+{
+  "../node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/index.js?commonjs-entry": {
+    "file": "assets/__federation_shared_react-dom-81eQxVv-.js",
+    "name": "__federation_shared_react-dom",
+    "src": "../node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/index.js?commonjs-entry",
+    "isEntry": true,
+    "imports": [
+      "../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js?commonjs-entry"
+    ]
+  },
+  "../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js?commonjs-entry": {
+    "file": "assets/__federation_shared_react-DYlhdcjt.js",
+    "name": "__federation_shared_react",
+    "src": "../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js?commonjs-entry",
+    "isEntry": true
+  },
+  "src/App.tsx": {
+    "file": "assets/__federation_expose_App-BZex6dc1.js",
+    "name": "__federation_expose_App",
+    "src": "src/App.tsx",
+    "isEntry": true,
+    "imports": [
+      "virtual:__federation_fn_import",
+      "../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js?commonjs-entry"
+    ]
+  },
+  "src/main.tsx": {
+    "file": "assets/__federation_expose_Render-aHVt60Iy.js",
+    "name": "__federation_expose_Render",
+    "src": "src/main.tsx",
+    "isEntry": true,
+    "imports": [
+      "virtual:__federation_fn_import",
+      "src/App.tsx",
+      "../node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/index.js?commonjs-entry"
+    ]
+  },
+  "style.css": {
+    "file": "assets/style-DtnNG9v8.css",
+    "src": "style.css"
+  },
+  "virtual:__federation_fn_import": {
+    "file": "assets/__federation_fn_import-BtR-3Iy5.js",
+    "name": "__federation_fn_import",
+    "src": "virtual:__federation_fn_import",
+    "isEntry": true
+  },
+  "virtual:__remoteEntryHelper__../remoteEntryMFE2.js": {
+    "file": "assets/../remoteEntryMFE2.js",
+    "name": "remoteEntryMFE2",
+    "src": "virtual:__remoteEntryHelper__../remoteEntryMFE2.js",
+    "isEntry": true
+  }
+}
