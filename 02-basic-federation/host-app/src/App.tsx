@@ -1,22 +1,19 @@
-import { useEffect, useState } from 'react';
+import { Suspense, lazy, useState } from 'react';
 
-import { loadMicrofrontendOne, loadMicrofrontendTwo } from './loadMicrofrontends.js';
+// @ts-ignore
+import MicrofrontendOne from 'microfrontendOne/App';
+// @ts-ignore
+const MicrofrontendTwo = lazy(() => import('microfrontendTwo/App'));
 
 import classes from './App.module.css';
 
 function App() {
   const [count, setCount] = useState(0);
 
-  // Load and immediately render microfrontend-one
-  useEffect(() => {
-    const placeholderEl = document.getElementById('placeholder-one')!;
-    loadMicrofrontendOne(placeholderEl);
-  }, []);
-
   return (
     <>
       <div className={classes.header}>
-        <div id="placeholder-one" />
+        <MicrofrontendOne />
       </div>
 
       <main className={classes.body}>
@@ -29,24 +26,19 @@ function App() {
         <p>
           <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
         </p>
-        <p>
-          <button
-            onClick={(e) => {
-              const placeholderEl = document.getElementById('placeholder-two')!;
-              loadMicrofrontendTwo(placeholderEl);
-              e.preventDefault();
-            }}
-          >
-            Load Microfrontend-two
-          </button>
-        </p>
       </main>
 
       <div className={classes.body}>
-        <div id="placeholder-two">
-          <h2>Placeholder</h2>
-          <p>The host app rendered this. It will be replaced once Microfrontend-two loads.</p>
-        </div>
+        <Suspense
+          fallback={
+            <>
+              <h2>Placeholder</h2>
+              <p>The host app rendered this. It will be replaced once Microfrontend-two loads.</p>
+            </>
+          }
+        >
+          <MicrofrontendTwo />
+        </Suspense>
       </div>
     </>
   );

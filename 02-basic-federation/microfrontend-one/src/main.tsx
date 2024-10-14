@@ -16,3 +16,4 @@ function render(rootElement: HTMLElement) {
 console.log('This is main.js in Microfrontend-one');
 
 export { render };
+export default render;

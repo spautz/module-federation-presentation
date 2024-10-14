@@ -1,19 +1,29 @@
 import { defineConfig } from 'vite';
+import federation from '@originjs/vite-plugin-federation';
 import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   mode: 'production',
-  plugins: [react()],
+  plugins: [
+    react(),
+    federation({
+      name: 'microfrontend-one',
+      filename: '../remoteEntryMFE1.js',
+      exposes: {
+        './render': './src/main.tsx',
+        './App': './src/App.tsx',
+      },
+      shared: ['react', 'react-dom'],
+    }),
+  ],
   define: { 'process.env.NODE_ENV': '"production"' },
   build: {
-    lib: {
-      entry: 'src/main.tsx',
-      formats: ['es'],
-      fileName: 'index',
-    },
+    cssCodeSplit: false,
     manifest: true,
     minify: false,
+    modulePreload: false,
     sourcemap: true,
+    target: 'esnext',
   },
 });

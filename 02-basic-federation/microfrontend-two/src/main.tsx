@@ -4,7 +4,7 @@ import { createRoot } from 'react-dom/client';
 import App from './App.tsx';
 
 function render(rootElement: HTMLElement) {
-  console.log('Rendering Microfrontend-one: ', rootElement);
+  console.log('Rendering Microfrontend-two: ', rootElement);
 
   createRoot(rootElement).render(
     <StrictMode>
@@ -16,3 +16,4 @@ function render(rootElement: HTMLElement) {
 console.log('This is main.js in Microfrontend-two');
 
 export { render };
+export default render;
