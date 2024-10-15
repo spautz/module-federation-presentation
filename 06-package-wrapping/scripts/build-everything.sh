@@ -6,24 +6,18 @@ echo "### Begin ${THIS_SCRIPT_NAME}"
 # Fail if anything in here fails
 set -e
 # Run from the repo root
-pushd "$(dirname -- "${BASH_SOURCE[0]:-$0}")"
+pushd "$(dirname -- "${BASH_SOURCE[0]:-$0}")/.."
 
 source ./scripts/helpers/helpers.sh
 
 ###################################################################################################
 
-./scripts/build-everything.sh
+./scripts/check-environment.sh
 
-rm -rf deploy
-mkdir deploy
+pnpm_or_bun install --frozen-lockfile --prefer-offline
 
-for PROJECT in 'host-app' 'header-mfe' 'table-mfe' ; do
-  cp -R ./$PROJECT/dist/ ./deploy/$PROJECT
-done
-
-ls -al deploy/ deploy/*
-
-pnpm run demo:analyze --html deploy-analysis.html
+pnpm_or_bun run test
+pnpm_or_bun run build
 
 ###################################################################################################
 

@@ -1,8 +1,10 @@
 # Module Federation and Microfrontends
 
-## Initial Context
+## 1. Initial Context
 
 ### Microfrontends
+
+The famous tractor page: https://micro-frontends.org/#the-base-prototype
 
 ### Module Federation
 

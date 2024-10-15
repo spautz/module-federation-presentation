@@ -6,24 +6,20 @@ echo "### Begin ${THIS_SCRIPT_NAME}"
 # Fail if anything in here fails
 set -e
 # Run from the repo root
-pushd "$(dirname -- "${BASH_SOURCE[0]:-$0}")"
+pushd "$(dirname -- "${BASH_SOURCE[0]:-$0}")/.."
 
 source ./scripts/helpers/helpers.sh
 
 ###################################################################################################
+# Check versions of Node, pnpm, and any other tools required
 
-./scripts/build-everything.sh
+if ! command_exists pnpm; then
+  echo "Could not find pnpm!"
+  exit 1
+fi
 
-rm -rf deploy
-mkdir deploy
-
-for PROJECT in 'host-app' 'header-mfe' 'table-mfe' ; do
-  cp -R ./$PROJECT/dist/ ./deploy/$PROJECT
-done
-
-ls -al deploy/ deploy/*
-
-pnpm run demo:analyze --html deploy-analysis.html
+# Validate against engines set in the workspace package.json
+pnpm exec check-node-version --package --print
 
 ###################################################################################################
 

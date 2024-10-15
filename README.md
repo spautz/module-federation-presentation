@@ -5,7 +5,7 @@ This repo contains demos for a Frontend Guild talk, planned for October 17, 2024
 Topics include microfrontends, module federation, ES Modules in general, import maps, and especially some pitfalls and
 failure points to avoid when using these techniques.
 
-[Supporting content and diagrams.](./PRESENTATION_INDEX.md)
+[Supporting content and diagrams.](./PRESENTATION)
 
 ## Summary
 
@@ -20,9 +20,11 @@ The examples in this repo walk through some problems and pitfalls that will aris
 then drill into some of the history and ideas around Javascript modules themselves, and then walk through some hybrid
 approaches that avoid the pitfalls and provide a better architecture overall.
 
-## Demo Projects (planned)
+## Demo Projects
 
-### [Basic Module Federation with Vite](01-unoptimized-microfrontends/)
+### [Basic manual microfrontends, raw and unoptimized](./01-unoptimized-microfrontend/)
+
+A simple setup
 
 ### [Basic Module Federation with Vite: How it falls apart](./02-vite-federation-pitfall/)
 
