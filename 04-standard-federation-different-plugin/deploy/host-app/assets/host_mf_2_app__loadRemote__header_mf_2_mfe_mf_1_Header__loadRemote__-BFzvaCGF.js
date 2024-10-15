@@ -21,14 +21,14 @@ function _mergeNamespaces(n, m) {
 }
 const { loadRemote } = index_cjs;
 const { initPromise } = host_mf_2_app__mf_v__runtimeInit__mf_v__;
-const res = initPromise.then((_) => loadRemote("remote"));
+const res = initPromise.then((_) => loadRemote("header-mfe/Header"));
 const exportModule = await initPromise.then((_) => res);
-var host_mf_2_app__loadRemote__remote__loadRemote__ = exportModule;
-const host_mf_2_app__loadRemote__remote__loadRemote__$1 = /* @__PURE__ */ getDefaultExportFromCjs(host_mf_2_app__loadRemote__remote__loadRemote__);
-const host_mf_2_app__loadRemote__remote__loadRemote__$2 = /* @__PURE__ */ _mergeNamespaces({
+var host_mf_2_app__loadRemote__header_mf_2_mfe_mf_1_Header__loadRemote__ = exportModule;
+const host_mf_2_app__loadRemote__header_mf_2_mfe_mf_1_Header__loadRemote__$1 = /* @__PURE__ */ getDefaultExportFromCjs(host_mf_2_app__loadRemote__header_mf_2_mfe_mf_1_Header__loadRemote__);
+const host_mf_2_app__loadRemote__header_mf_2_mfe_mf_1_Header__loadRemote__$2 = /* @__PURE__ */ _mergeNamespaces({
   __proto__: null,
-  default: host_mf_2_app__loadRemote__remote__loadRemote__$1
-}, [host_mf_2_app__loadRemote__remote__loadRemote__]);
+  default: host_mf_2_app__loadRemote__header_mf_2_mfe_mf_1_Header__loadRemote__$1
+}, [host_mf_2_app__loadRemote__header_mf_2_mfe_mf_1_Header__loadRemote__]);
 export {
-  host_mf_2_app__loadRemote__remote__loadRemote__$2 as h
+  host_mf_2_app__loadRemote__header_mf_2_mfe_mf_1_Header__loadRemote__$2 as h
 };

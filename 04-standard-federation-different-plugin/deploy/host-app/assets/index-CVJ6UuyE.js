@@ -7038,7 +7038,7 @@ const classes = {
   header,
   body
 };
-const HeaderMFE = reactExports.lazy(() => __vitePreload(() => import("./host_mf_2_app__loadRemote__remote__loadRemote__-B1WzGEwO.js").then((n2) => n2.h), true ? [] : void 0));
+const HeaderMFE = reactExports.lazy(() => __vitePreload(() => import("./host_mf_2_app__loadRemote__header_mf_2_mfe_mf_1_Header__loadRemote__-BFzvaCGF.js").then((n2) => n2.h), true ? [] : void 0));
 const TableMFE = reactExports.lazy(() => __vitePreload(() => import("./host_mf_2_app__loadRemote__table_mf_2_mfe_mf_1_Table__loadRemote__-OKfXNg2o.js").then((n2) => n2.h), true ? [] : void 0));
 function App() {
   const [count, setCount] = reactExports.useState(0);

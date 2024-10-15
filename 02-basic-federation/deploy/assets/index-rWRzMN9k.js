@@ -451,8 +451,8 @@ var m = reactDomExports;
 }
 
 const remotesMap = {
-'microfrontendOne':{url:'http://localhost:3000/microfrontend-one/remoteEntryMFE1.js',format:'esm',from:'vite'},
-  'microfrontendTwo':{url:'http://localhost:3000/microfrontend-two/remoteEntryMFE2.js',format:'esm',from:'vite'}
+'microfrontendOne':{url:'http://localhost:3002/microfrontend-one/remoteEntryMFE1.js',format:'esm',from:'vite'},
+  'microfrontendTwo':{url:'http://localhost:3002/microfrontend-two/remoteEntryMFE2.js',format:'esm',from:'vite'}
 };
                 const currentImports = {};
                 const loadJS = async (url, fn) => {

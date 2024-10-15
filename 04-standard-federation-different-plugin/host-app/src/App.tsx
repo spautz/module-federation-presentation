@@ -3,9 +3,9 @@ import { Suspense, lazy, useState } from 'react';
 // @ts-ignore
 // import HeaderMFE from 'header-mfe/Header';
 // @ts-ignore
-import { HeaderMFE } from 'header-mfe';
+// import { HeaderMFE } from 'header-mfe';
 // @ts-ignore
-const HeaderMFE = lazy(() => import('remote'));
+const HeaderMFE = lazy(() => import('header-mfe/Header'));
 // @ts-ignore
 const TableMFE = lazy(() => import('table-mfe/Table'));
 

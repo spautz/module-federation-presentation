@@ -10,8 +10,8 @@ export default defineConfig({
     federation({
       name: 'host-app',
       remotes: {
-        microfrontendOne: 'http://localhost:3000/microfrontend-one/remoteEntryMFE1.js',
-        microfrontendTwo: 'http://localhost:3000/microfrontend-two/remoteEntryMFE2.js',
+        microfrontendOne: 'http://localhost:3002/microfrontend-one/remoteEntryMFE1.js',
+        microfrontendTwo: 'http://localhost:3002/microfrontend-two/remoteEntryMFE2.js',
       },
       shared: ['react', 'react-dom'],
     }),

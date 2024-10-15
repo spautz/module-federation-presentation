@@ -27,7 +27,7 @@
     "____ WORKSPACE COMMANDS ____________________________________________": "",
     "clean": "rimraf --glob ./deploy ./node_modules/.cache ./.turbo/{cache,runs,*.log} ./*.log && pnpm --parallel -r run clean",
     "build": "turbo run build",
-    "demo": "serve ./deploy",
+    "demo": "serve ./deploy -p 3003",
     "demo:analyze": "source-map-explorer ./deploy/**/*.js",
     "test": "turbo run test"
   },

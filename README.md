@@ -22,17 +22,29 @@ approaches that avoid the pitfalls and provide a better architecture overall.
 
 ## Demo Projects
 
-### [Basic manual microfrontends, raw and unoptimized](./01-unoptimized-microfrontend/)
+### [1. Basic manual microfrontends, raw and unoptimized](./01-unoptimized-microfrontend/)
 
-A simple setup
+A simple setup: one app imports and runs other apps (as js modules)
 
-### [Basic Module Federation with Vite: How it falls apart](./02-vite-federation-pitfall/)
+### [2. Basic module federation with Vite](./02-basic-federation/)
 
-### [History and Overview of ES Modules](./03-vanilla-modules/)
+A basic, raw microfrontend setup -- but using build-time plugins for run-time linking
 
-### [Decoupling the Build Systems](./04-decoupled-module-federation/)
+### [3. A normal module federation microfrontend setup](./03-standard-federation/)
 
-### [SDK-Wrapped Microfrontends](./05-microfrontends/)
+What you might see in a normal setup.
+
+### [4. Another normal module federation microfrontend setup](./04-standard-federation-different-plugin/)
+
+What you might see in a normal setup.
+
+### [5. Console scripting for fun and profit](./05-console-scripting/)
+
+Taking the "build-time plugin setup" out of the build-time plugin setup.
+
+### [6. A better way: "package-wrapped apps"](./06-package-wrapping/)
+
+A better architecture for all of this.
 
 ## Repo Notes
 

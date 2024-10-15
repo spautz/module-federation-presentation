@@ -451,8 +451,8 @@ var m = reactDomExports;
 }
 
 const remotesMap = {
-'header-mfe':{url:'http://localhost:3000/header-mfe/assets/remoteEntry-header.js',format:'esm',from:'vite'},
-  'table-mfe':{url:'http://localhost:3000/table-mfe/assets/remoteEntry-table.js',format:'esm',from:'vite'}
+'header-mfe':{url:'http://localhost:3003/header-mfe/assets/remoteEntry-header.js',format:'esm',from:'vite'},
+  'table-mfe':{url:'http://localhost:3003/table-mfe/assets/remoteEntry-table.js',format:'esm',from:'vite'}
 };
                 const currentImports = {};
                 const loadJS = async (url, fn) => {

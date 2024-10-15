@@ -14,11 +14,11 @@ export default defineConfig(({ mode }) => ({
         'header-mfe':
           mode === 'development'
             ? 'http://localhost:3001/assets/remoteEntry-header.js'
-            : 'http://localhost:3000/header-mfe/assets/remoteEntry-header.js',
+            : 'http://localhost:3003/header-mfe/assets/remoteEntry-header.js',
         'table-mfe':
           mode === 'development'
             ? 'http://localhost:3002/assets/remoteEntry-table.js'
-            : 'http://localhost:3000/table-mfe/assets/remoteEntry-table.js',
+            : 'http://localhost:3003/table-mfe/assets/remoteEntry-table.js',
       },
       shared: ['react', 'react-dom'],
     }),
