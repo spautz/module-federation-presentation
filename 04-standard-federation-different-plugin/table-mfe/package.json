@@ -1,5 +1,5 @@
 {
-  "name": "@spautz/module-federation-presentation--03-standard-federation--table-mfe",
+  "name": "@spautz/module-federation-presentation--04-standard-federation-different-plugin--table-mfe",
   "private": true,
   "type": "module",
   "scripts": {

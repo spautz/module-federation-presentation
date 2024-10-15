@@ -1,5 +1,5 @@
 {
-  "name": "@spautz/module-federation-presentation--03-standard-federation-workspace",
+  "name": "@spautz/module-federation-presentation--04-standard-federation-different-plugin-workspace",
   "private": true,
   "description": "Workspace setup for an standard module federation demo, for a presentation",
   "license": "MIT",
@@ -8,7 +8,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/spautz/module-federation-presentation.git",
-    "directory": "03-standard-federation"
+    "directory": "04-standard-federation-different-plugin"
   },
   "author": {
     "name": "Steven Pautz",

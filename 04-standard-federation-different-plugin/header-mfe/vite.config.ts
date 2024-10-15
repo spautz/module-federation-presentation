@@ -1,6 +1,8 @@
-import { defineConfig } from 'vite';
-import federation from '@originjs/vite-plugin-federation';
+import { federation } from '@module-federation/vite';
 import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+
+import packageJson from './package.json';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -8,15 +10,22 @@ export default defineConfig({
   plugins: [
     react(),
     federation({
-      name: 'header-mfe',
       filename: 'remoteEntry-header.js',
+      name: 'remote',
       exposes: {
         './render': './src/main.tsx',
         './Header': './src/Header.tsx',
       },
+      remotes: {},
       shared: {
-        react: { requiredVersion: '18' },
-        'react-dom': { requiredVersion: '18' },
+        react: {
+          requiredVersion: packageJson.dependencies.react,
+          singleton: true,
+        },
+        'react-dom': {
+          requiredVersion: packageJson.dependencies.react,
+          singleton: true,
+        },
       },
     }),
   ],
@@ -31,6 +40,6 @@ export default defineConfig({
     minify: false,
     modulePreload: false,
     sourcemap: true,
-    target: 'esnext',
+    target: 'chrome89',
   },
 });

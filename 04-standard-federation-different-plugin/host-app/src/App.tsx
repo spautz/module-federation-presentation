@@ -1,9 +1,13 @@
 import { Suspense, lazy, useState } from 'react';
 
 // @ts-ignore
-import HeaderMFE from 'header-mfe/Header';
+// import HeaderMFE from 'header-mfe/Header';
 // @ts-ignore
-const Table = lazy(() => import('table-mfe/Table'));
+import { HeaderMFE } from 'header-mfe';
+// @ts-ignore
+const HeaderMFE = lazy(() => import('remote'));
+// @ts-ignore
+const TableMFE = lazy(() => import('table-mfe/Table'));
 
 import classes from './App.module.css';
 
@@ -37,7 +41,7 @@ function App() {
             </>
           }
         >
-          <Table />
+          <TableMFE />
         </Suspense>
       </div>
     </>

@@ -1,5 +1,5 @@
 {
-  "name": "@spautz/module-federation-presentation--03-standard-federation--header-mfe",
+  "name": "@spautz/module-federation-presentation--04-standard-federation-different-plugin--header-mfe",
   "private": true,
   "type": "module",
   "scripts": {
@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
-    "@originjs/vite-plugin-federation": "1.3.6",
+    "@module-federation/vite": "1.1.3",
     "@types/react": "^18.3.10",
     "@types/react-dom": "^18.3.0",
     "@vitejs/plugin-react": "^4.3.2",
