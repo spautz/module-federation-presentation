@@ -1,0 +1,25 @@
+.header {
+  display: grid;
+  flex: 1;
+  grid-auto-columns: 1fr;
+  grid-template-areas:
+    'title title'
+    'nav-left  nav-right';
+  justify-content: center;
+  gap: 0.5em;
+
+  h1 {
+    grid-area: title;
+    justify-self: start;
+  }
+
+  nav:first-of-type {
+    grid-area: nav-left;
+    justify-self: start;
+  }
+
+  nav:last-of-type {
+    grid-area: nav-right;
+    justify-self: end;
+  }
+}

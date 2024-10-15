@@ -1,0 +1,5 @@
+packages:
+  - 'host-app'
+  - 'header-mfe'
+  - 'table-mfe'
+  - 'packages/*'
