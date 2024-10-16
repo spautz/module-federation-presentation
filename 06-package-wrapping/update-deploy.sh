@@ -17,9 +17,9 @@ source ./scripts/helpers/helpers.sh
 rm -rf deploy
 mkdir deploy
 
-for PROJECT in 'host-app' 'header-mfe' 'table-mfe' ; do
-  cp -R ./$PROJECT/dist/ ./deploy/$PROJECT
-done
+cp -R ./host-app/dist/ ./deploy/host-app
+cp -R ./header-project/header-mfe/dist/ ./deploy/header-mfe
+#cp -R ./table-project/table-mfe/dist/ ./deploy/table-mfe
 
 ls -al deploy/ deploy/*
 

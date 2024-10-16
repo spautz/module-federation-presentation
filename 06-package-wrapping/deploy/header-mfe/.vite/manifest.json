@@ -1,17 +1,17 @@
 {
-  "../node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/index.js?commonjs-entry": {
+  "../../node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/index.js?commonjs-entry": {
     "file": "assets/__federation_shared_react-dom-81eQxVv-.js",
     "name": "__federation_shared_react-dom",
-    "src": "../node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/index.js?commonjs-entry",
+    "src": "../../node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/index.js?commonjs-entry",
     "isEntry": true,
     "imports": [
-      "../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js?commonjs-entry"
+      "../../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js?commonjs-entry"
     ]
   },
-  "../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js?commonjs-entry": {
+  "../../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js?commonjs-entry": {
     "file": "assets/__federation_shared_react-DYlhdcjt.js",
     "name": "__federation_shared_react",
-    "src": "../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js?commonjs-entry",
+    "src": "../../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js?commonjs-entry",
     "isEntry": true
   },
   "src/Header.tsx": {
@@ -20,7 +20,7 @@
     "src": "src/Header.tsx",
     "isEntry": true,
     "imports": [
-      "../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js?commonjs-entry"
+      "../../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js?commonjs-entry"
     ]
   },
   "src/main.tsx": {
@@ -31,7 +31,7 @@
     "imports": [
       "virtual:__federation_fn_import",
       "src/Header.tsx",
-      "../node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/index.js?commonjs-entry"
+      "../../node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/index.js?commonjs-entry"
     ]
   },
   "style.css": {

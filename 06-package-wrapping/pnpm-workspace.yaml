@@ -1,5 +1,4 @@
 packages:
   - 'host-app'
-  - 'header-mfe'
-  - 'table-mfe'
-  - 'packages/*'
+  - 'header-project/*'
+  - 'table-project/*'

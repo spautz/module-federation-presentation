@@ -16,7 +16,7 @@ export default defineConfig({
     environment: 'jsdom',
 
     // This gets resolved *per project* (each package, plus the root)
-    // setupFiles: './setupTests.ts',
+    setupFiles: './setupTests.ts',
 
     exclude: testPathsToExclude,
 
