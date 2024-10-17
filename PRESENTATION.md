@@ -83,7 +83,7 @@ http://localhost:3006/
 
 Tl;dr:
 
-- Do the build system coupling in a sibling project alongside the microfrontend
+- Do the build system work in a sibling project alongside the microfrontend
 - Publish that as a npm package
 - Bonus: easier integration, better dev experience
 

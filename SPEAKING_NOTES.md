@@ -53,7 +53,7 @@ Asset weight:
 ## Demo 2
 
 (Show page. Show Vite plugin usage. Maybe talk about how things used to use manifest.json to know what to load, but now
-it's in the build plugin's config.)
+it's in the federation build plugin's config.)
 
 Overall better. Some things look like magic.
 
@@ -139,10 +139,9 @@ There's two sides here: the host app and the remote app. Let's take a look at th
 
 (Look at header-mfe's remoteEntry.js. See the info from the manifest -- this is how things used to work.)
 
-======
-
 Console demo
 
+```
 const headerRemoteEntryPromise = import('http://localhost:3003/header-mfe/assets/remoteEntry-header.js')
 const headerRemoteEntry = await import('http://localhost:3003/header-mfe/assets/remoteEntry-header.js')
 
@@ -153,5 +152,23 @@ const renderModulePromise = await headerRemoteEntry.get('./render')
 const renderModule = (await headerRemoteEntry.get('./render'))()
 
 renderModule.render(document.body)
+```
 
 ## Package-Wrapped Apps
+
+Getting back to the problem of build system coupling --
+
+We don't want to get rid of the build plugin for module federation: it's very useful. It already implements everything
+we want -- and if we tried to reinvent it we'd just end up with the same lock-in situation.
+
+Instead, we need to pull the lock-in out of the host app. Instead of the host app's _own_ code consuming the remote
+module, we can put that consuming code into a npm package -- have the package run the code we just did in the console.
+
+Now both sides of the setup can be maintained in one project, by one team. And this means piecemeal or incremental
+updates are possible: the host app's interactions with its microfrontends, as well as a microfrontend's interactions
+with many different host apps, are mediated through a package which can be versioned and updated just like any other.
+
+This setup is called a "package-wrapped app". (I think. To my knowledge nobody else is doing this: if there are any,
+I've not come across them. The closest you get are the packages for build plugins.)
+
+So, here's how it works ... (show code)
