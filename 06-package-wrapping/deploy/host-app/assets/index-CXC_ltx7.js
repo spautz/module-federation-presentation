@@ -357,10 +357,10 @@ function satisfy(version, range) {
   return true;
 }
 
-const currentImports$1 = {};
+const currentImports = {};
 
 // eslint-disable-next-line no-undef
-const moduleMap = {'react':{get:()=>()=>__federation_import$1(new URL('__federation_shared_react-DYlhdcjt.js', import.meta.url).href),import:true},'react-dom':{get:()=>()=>__federation_import$1(new URL('__federation_shared_react-dom-81eQxVv-.js', import.meta.url).href),import:true}};
+const moduleMap = {'react':{get:()=>()=>__federation_import(new URL('__federation_shared_react-DYlhdcjt.js', import.meta.url).href),import:true},'react-dom':{get:()=>()=>__federation_import(new URL('__federation_shared_react-dom-81eQxVv-.js', import.meta.url).href),import:true}};
 const moduleCache = Object.create(null);
 async function importShared(name, shareScope = 'default') {
   return moduleCache[name]
@@ -368,9 +368,9 @@ async function importShared(name, shareScope = 'default') {
     : (await getSharedFromRuntime(name, shareScope)) || getSharedFromLocal(name)
 }
 // eslint-disable-next-line
-async function __federation_import$1(name) {
-  currentImports$1[name] ??= import(name);
-  return currentImports$1[name]
+async function __federation_import(name) {
+  currentImports[name] ??= import(name);
+  return currentImports[name]
 }
 async function getSharedFromRuntime(name, shareScope) {
   let module = null;
@@ -450,106 +450,58 @@ var m = reactDomExports;
   m.hydrateRoot;
 }
 
-const remotesMap = {
-'header-mfe':{url:'http://localhost:3000/header-mfe/assets/remoteEntry-header.js',format:'esm',from:'vite'},
-  'table-mfe':{url:'http://localhost:3000/table-mfe/assets/remoteEntry-table.js',format:'esm',from:'vite'}
+const ENTRY_POINT__RENDER = './render';
+const importHeaderModule = async (baseUrl, entryPoint) => {
+    const moduleUrl = new URL('header-mfe/assets/remoteEntry-header.js', baseUrl);
+    const headerRemoteEntry = await import(moduleUrl.toString());
+    const entryPointModule = (await headerRemoteEntry.get(entryPoint))();
+    return entryPointModule;
 };
-                const currentImports = {};
-                const loadJS = async (url, fn) => {
-                    const resolvedUrl = typeof url === 'function' ? await url() : url;
-                    const script = document.createElement('script');
-                    script.type = 'text/javascript';
-                    script.onload = fn;
-                    script.src = resolvedUrl;
-                    document.getElementsByTagName('head')[0].appendChild(script);
-                };
+const headerModuleEntryPointCache = Object.create(null);
+const getHeaderModule = async (baseUrl, entryPoint) => {
+    if (!Object.hasOwn(headerModuleEntryPointCache, baseUrl)) {
+        headerModuleEntryPointCache[baseUrl] = {};
+    }
+    if (!Object.hasOwn(headerModuleEntryPointCache[baseUrl], entryPoint)) {
+        headerModuleEntryPointCache[baseUrl][entryPoint] = await importHeaderModule(baseUrl, entryPoint);
+    }
+    return headerModuleEntryPointCache[baseUrl][entryPoint];
+};
+// Exposed API:
+const prefetchHeaderModule = async (baseUrl) => {
+    getHeaderModule(baseUrl, ENTRY_POINT__RENDER);
+};
+const getRenderFn = async (baseUrl) => {
+    const renderEntryPoint = await getHeaderModule(baseUrl, ENTRY_POINT__RENDER);
+    return renderEntryPoint.renderV1;
+};
 
-                function get(name, remoteFrom) {
-                    return __federation_import(name).then(module => () => {
-                        if (remoteFrom === 'webpack') {
-                            return Object.prototype.toString.call(module).indexOf('Module') > -1 && module.default ? module.default : module
-                        }
-                        return module
-                    })
-                }
-                
-                function merge(obj1, obj2) {
-                  const mergedObj = Object.assign(obj1, obj2);
-                  for (const key of Object.keys(mergedObj)) {
-                    if (typeof mergedObj[key] === 'object' && typeof obj2[key] === 'object') {
-                      mergedObj[key] = merge(mergedObj[key], obj2[key]);
-                    }
-                  }
-                  return mergedObj;
-                }
+const renderHeader = async (baseUrl, placeholderEl) => {
+    const renderFn = await getRenderFn(baseUrl);
+    return renderFn(placeholderEl);
+};
 
-                const wrapShareModule = remoteFrom => {
-                  return merge({
-                    'react':{'18.3.1':{get:()=>get(new URL('__federation_shared_react-DYlhdcjt.js', import.meta.url).href, remoteFrom), loaded:1}},'react-dom':{'18.3.1':{get:()=>get(new URL('__federation_shared_react-dom-81eQxVv-.js', import.meta.url).href, remoteFrom), loaded:1}}
-                  }, (globalThis.__federation_shared__ || {})['default'] || {});
-                };
-
-                async function __federation_import(name) {
-                    currentImports[name] ??= import(name);
-                    return currentImports[name]
-                }
-
-                async function __federation_method_ensure(remoteId) {
-                    const remote = remotesMap[remoteId];
-                    if (!remote.inited) {
-                        if ('var' === remote.format) {
-                            // loading js with script tag
-                            return new Promise(resolve => {
-                                const callback = () => {
-                                    if (!remote.inited) {
-                                        remote.lib = window[remoteId];
-                                        remote.lib.init(wrapShareModule(remote.from));
-                                        remote.inited = true;
-                                    }
-                                    resolve(remote.lib);
-                                };
-                                return loadJS(remote.url, callback);
-                            });
-                        } else if (['esm', 'systemjs'].includes(remote.format)) {
-                            // loading js with import(...)
-                            return new Promise((resolve, reject) => {
-                                const getUrl = typeof remote.url === 'function' ? remote.url : () => Promise.resolve(remote.url);
-                                getUrl().then(url => {
-                                    import(/* @vite-ignore */ url).then(lib => {
-                                        if (!remote.inited) {
-                                            const shareScope = wrapShareModule(remote.from);
-                                            lib.init(shareScope);
-                                            remote.lib = lib;
-                                            remote.lib.init(shareScope);
-                                            remote.inited = true;
-                                        }
-                                        resolve(remote.lib);
-                                    }).catch(reject);
-                                });
-                            })
-                        }
-                    } else {
-                        return remote.lib;
-                    }
-                }
-
-                function __federation_method_unwrapDefault(module) {
-                    return (module?.__esModule || module?.[Symbol.toStringTag] === 'Module') ? module.default : module
-                }
-
-                function __federation_method_wrapDefault(module, need) {
-                    if (!module?.default && need) {
-                        let obj = Object.create(null);
-                        obj.default = module;
-                        obj.__esModule = true;
-                        return obj;
-                    }
-                    return module;
-                }
-
-                function __federation_method_getRemote(remoteName, componentName) {
-                    return __federation_method_ensure(remoteName).then((remote) => remote.get(componentName).then(factory => factory()));
-                }
+const {memo,useEffect,useRef} = await importShared('react');
+const Internal_HeaderPlaceholder = (props) => {
+    const { children = '(Loading)', height = '5em' } = props;
+    return (jsxRuntimeExports.jsx("header", { "aria-busy": true, style: { height }, children: children }));
+};
+const Internal_HeaderWrapper = memo((props) => {
+    const { baseUrl, children } = props;
+    prefetchHeaderModule(baseUrl);
+    const placeholderRef = useRef(null);
+    useEffect(() => {
+        renderHeader(baseUrl, placeholderRef.current);
+    }, []);
+    return jsxRuntimeExports.jsx("div", { ref: placeholderRef, children: children });
+}, () => {
+    // Never ever rerender
+    return false;
+});
+const HeaderMicrofrontend = (props) => {
+    const { baseUrl } = props;
+    return (jsxRuntimeExports.jsx(Internal_HeaderWrapper, { baseUrl: baseUrl, children: jsxRuntimeExports.jsx(Internal_HeaderPlaceholder, {}) }));
+};
 
 const header = "_header_iau7o_45";
 const body = "_body_iau7o_62";
@@ -558,15 +510,11 @@ const classes = {
 	body: body
 };
 
-const {Suspense,lazy,useState} = await importShared('react');
-
-const __federation_var_headermfeHeader = await __federation_method_getRemote("header-mfe" , "./Header");
- let HeaderMFE = __federation_method_unwrapDefault(__federation_var_headermfeHeader); 
-const Table = lazy(() => __federation_method_getRemote("table-mfe" , "./Table").then(module=>__federation_method_wrapDefault(module, true)));
+const {Suspense,useState} = await importShared('react');
 function App() {
   const [count, setCount] = useState(0);
   return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: classes.header, children: /* @__PURE__ */ jsxRuntimeExports.jsx(HeaderMFE, {}) }),
+    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: classes.header, children: /* @__PURE__ */ jsxRuntimeExports.jsx(HeaderMicrofrontend, { baseUrl: window.location.origin }) }),
     /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: classes.body, children: [
       /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "This is the host app" }),
       /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Here's some generic content." }),
@@ -585,8 +533,7 @@ function App() {
         fallback: /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
           /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Placeholder" }),
           /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "The host app rendered this. It will be replaced once Microfrontend-two loads." })
-        ] }),
-        children: /* @__PURE__ */ jsxRuntimeExports.jsx(Table, {})
+        ] })
       }
     ) })
   ] });

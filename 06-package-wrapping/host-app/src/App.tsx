@@ -1,9 +1,8 @@
-import { Suspense, lazy, useState } from 'react';
+import { Suspense, useState } from 'react';
 
+import { HeaderMicrofrontend } from '@spautz/module-federation-presentation--header-sdk';
 // @ts-ignore
-import HeaderMFE from 'header-mfe/Header';
-// @ts-ignore
-const Table = lazy(() => import('table-mfe/Table'));
+// const Table = lazy(() => import('table-mfe/Table'));
 
 import classes from './App.module.css';
 
@@ -13,7 +12,7 @@ function App() {
   return (
     <>
       <div className={classes.header}>
-        <HeaderMFE />
+        <HeaderMicrofrontend baseUrl={window.location.origin} />
       </div>
 
       <main className={classes.body}>
@@ -37,7 +36,7 @@ function App() {
             </>
           }
         >
-          <Table />
+          {/*<Table />*/}
         </Suspense>
       </div>
     </>

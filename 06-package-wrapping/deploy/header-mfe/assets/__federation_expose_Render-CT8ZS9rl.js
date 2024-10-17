@@ -10,7 +10,7 @@ var m = reactDomExports;
 }
 
 const {StrictMode} = await importShared('react');
-function render(rootElement) {
+function renderV1(rootElement) {
   console.log("Rendering Header microfrontend: ", rootElement);
   createRoot(rootElement).render(
     /* @__PURE__ */ jsxRuntimeExports.jsx(StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(Header, {}) })
@@ -18,5 +18,5 @@ function render(rootElement) {
 }
 console.log("This is main.js in header-mfe");
 
-export { render as default, render };
-//# sourceMappingURL=__federation_expose_Render-D20YAEW_.js.map
+export { renderV1 };
+//# sourceMappingURL=__federation_expose_Render-CT8ZS9rl.js.map

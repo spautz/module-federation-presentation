@@ -91,8 +91,8 @@
     },
     {
       "path": "./dist/esm/index.js",
-      "import": "{ TodoComponent }",
-      "limit": "300 B"
+      "import": "{ HeaderMicrofrontend }",
+      "limit": "1 kB"
     }
   ]
 }
