@@ -1,8 +1,10 @@
-import { Suspense, useState } from 'react';
+import { useState } from 'react';
 
 import { HeaderMicrofrontend } from '@spautz/module-federation-presentation--header-sdk';
-// @ts-ignore
-// const Table = lazy(() => import('table-mfe/Table'));
+import {
+  prefetchTableModule,
+  renderTable /* TableMicrofrontend */,
+} from '@spautz/module-federation-presentation--table-sdk';
 
 import classes from './App.module.css';
 
@@ -25,19 +27,32 @@ function App() {
         <p>
           <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
         </p>
+        <p>
+          <button
+            onClick={(e) => {
+              prefetchTableModule(window.location.origin);
+              e.preventDefault();
+            }}
+          >
+            Preload Table
+          </button>
+          <button
+            onClick={(e) => {
+              const placeholderEl = document.getElementById('table-placeholder')!;
+              renderTable(window.location.origin, placeholderEl);
+              e.preventDefault();
+            }}
+          >
+            Render Table
+          </button>
+        </p>
       </main>
 
       <div className={classes.body}>
-        <Suspense
-          fallback={
-            <>
-              <h2>Placeholder</h2>
-              <p>The host app rendered this. It will be replaced once Microfrontend-two loads.</p>
-            </>
-          }
-        >
-          {/*<Table />*/}
-        </Suspense>
+        <div id="table-placeholder">
+          <h2>Placeholder</h2>
+          <p>The host app rendered this. It will be replaced once Microfrontend-two loads.</p>
+        </div>
       </div>
     </>
   );

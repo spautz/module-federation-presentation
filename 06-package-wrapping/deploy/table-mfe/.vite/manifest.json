@@ -1,0 +1,54 @@
+{
+  "../../node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/index.js?commonjs-entry": {
+    "file": "assets/__federation_shared_react-dom-81eQxVv-.js",
+    "name": "__federation_shared_react-dom",
+    "src": "../../node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/index.js?commonjs-entry",
+    "isEntry": true,
+    "imports": [
+      "../../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js?commonjs-entry"
+    ]
+  },
+  "../../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js?commonjs-entry": {
+    "file": "assets/__federation_shared_react-DYlhdcjt.js",
+    "name": "__federation_shared_react",
+    "src": "../../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js?commonjs-entry",
+    "isEntry": true
+  },
+  "src/Table.tsx": {
+    "file": "assets/__federation_expose_Table-BKa7_reh.js",
+    "name": "__federation_expose_Table",
+    "src": "src/Table.tsx",
+    "isEntry": true,
+    "imports": [
+      "virtual:__federation_fn_import",
+      "../../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js?commonjs-entry"
+    ]
+  },
+  "src/main.tsx": {
+    "file": "assets/__federation_expose_Render-C2il5xtW.js",
+    "name": "__federation_expose_Render",
+    "src": "src/main.tsx",
+    "isEntry": true,
+    "imports": [
+      "virtual:__federation_fn_import",
+      "src/Table.tsx",
+      "../../node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/index.js?commonjs-entry"
+    ]
+  },
+  "style.css": {
+    "file": "assets/style-BpILT9y-.css",
+    "src": "style.css"
+  },
+  "virtual:__federation_fn_import": {
+    "file": "assets/__federation_fn_import-D86225AB.js",
+    "name": "__federation_fn_import",
+    "src": "virtual:__federation_fn_import",
+    "isEntry": true
+  },
+  "virtual:__remoteEntryHelper__remoteEntry-table.js": {
+    "file": "assets/remoteEntry-table.js",
+    "name": "remoteEntry-table",
+    "src": "virtual:__remoteEntryHelper__remoteEntry-table.js",
+    "isEntry": true
+  }
+}

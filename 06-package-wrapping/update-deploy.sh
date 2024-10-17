@@ -19,7 +19,7 @@ mkdir deploy
 
 cp -R ./host-app/dist/ ./deploy/host-app
 cp -R ./header-project/header-mfe/dist/ ./deploy/header-mfe
-#cp -R ./table-project/table-mfe/dist/ ./deploy/table-mfe
+cp -R ./table-project/table-mfe/dist/ ./deploy/table-mfe
 
 ls -al deploy/ deploy/*
 

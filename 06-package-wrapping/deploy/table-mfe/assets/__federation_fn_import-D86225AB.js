@@ -1,6 +1,3 @@
-import { r as reactExports } from './__federation_shared_react-DYlhdcjt.js';
-import { r as reactDomExports } from './__federation_shared_react-dom-81eQxVv-.js';
-
 const buildIdentifier = "[0-9A-Za-z-]+";
 const build = `(?:\\+(${buildIdentifier}(?:\\.${buildIdentifier})*))`;
 const numericIdentifier = "0|[1-9]\\d*";
@@ -360,7 +357,7 @@ function satisfy(version, range) {
 const currentImports = {};
 
 // eslint-disable-next-line no-undef
-const moduleMap = {'react':{get:()=>()=>__federation_import(new URL('__federation_shared_react-DYlhdcjt.js', import.meta.url).href),import:true},'react-dom':{get:()=>()=>__federation_import(new URL('__federation_shared_react-dom-81eQxVv-.js', import.meta.url).href),import:true}};
+const moduleMap = {'react':{get:()=>()=>__federation_import(new URL('__federation_shared_react-DYlhdcjt.js', import.meta.url).href),import:true,requiredVersion:'18'},'react-dom':{get:()=>()=>__federation_import(new URL('__federation_shared_react-dom-81eQxVv-.js', import.meta.url).href),import:true,requiredVersion:'18'}};
 const moduleCache = Object.create(null);
 async function importShared(name, shareScope = 'default') {
   return moduleCache[name]
@@ -421,125 +418,5 @@ function flattenModule(module, name) {
   return module
 }
 
-var jsxRuntime = {exports: {}};
-
-var reactJsxRuntime_production_min = {};
-
-/**
- * @license React
- * react-jsx-runtime.production.min.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-var f=reactExports,k=Symbol.for("react.element"),l=Symbol.for("react.fragment"),m$1=Object.prototype.hasOwnProperty,n=f.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED.ReactCurrentOwner,p={key:!0,ref:!0,__self:!0,__source:!0};
-function q(c,a,g){var b,d={},e=null,h=null;void 0!==g&&(e=""+g);void 0!==a.key&&(e=""+a.key);void 0!==a.ref&&(h=a.ref);for(b in a)m$1.call(a,b)&&!p.hasOwnProperty(b)&&(d[b]=a[b]);if(c&&c.defaultProps)for(b in a=c.defaultProps,a)void 0===d[b]&&(d[b]=a[b]);return {$$typeof:k,type:c,key:e,ref:h,props:d,_owner:n.current}}reactJsxRuntime_production_min.Fragment=l;reactJsxRuntime_production_min.jsx=q;reactJsxRuntime_production_min.jsxs=q;
-
-{
-  jsxRuntime.exports = reactJsxRuntime_production_min;
-}
-
-var jsxRuntimeExports = jsxRuntime.exports;
-
-var createRoot;
-var m = reactDomExports;
-{
-  createRoot = m.createRoot;
-  m.hydrateRoot;
-}
-
-const ENTRY_POINT__RENDER = './render';
-const importHeaderModule = async (baseUrl, entryPoint) => {
-    const moduleUrl = new URL('header-mfe/assets/remoteEntry-header.js', baseUrl);
-    const headerRemoteEntry = await import(moduleUrl.toString());
-    const entryPointModule = (await headerRemoteEntry.get(entryPoint))();
-    return entryPointModule;
-};
-const headerModuleEntryPointCache = Object.create(null);
-const getHeaderModule = async (baseUrl, entryPoint) => {
-    if (!Object.hasOwn(headerModuleEntryPointCache, baseUrl)) {
-        headerModuleEntryPointCache[baseUrl] = {};
-    }
-    if (!Object.hasOwn(headerModuleEntryPointCache[baseUrl], entryPoint)) {
-        headerModuleEntryPointCache[baseUrl][entryPoint] = await importHeaderModule(baseUrl, entryPoint);
-    }
-    return headerModuleEntryPointCache[baseUrl][entryPoint];
-};
-// Exposed API:
-const prefetchHeaderModule = async (baseUrl) => {
-    getHeaderModule(baseUrl, ENTRY_POINT__RENDER);
-};
-const getRenderFn = async (baseUrl) => {
-    const renderEntryPoint = await getHeaderModule(baseUrl, ENTRY_POINT__RENDER);
-    return renderEntryPoint.renderV1;
-};
-
-const renderHeader = async (baseUrl, placeholderEl) => {
-    const renderFn = await getRenderFn(baseUrl);
-    return renderFn(placeholderEl);
-};
-
-const {memo,useEffect,useRef} = await importShared('react');
-const Internal_HeaderPlaceholder = (props) => {
-    const { children = '(Loading)', height = '5em' } = props;
-    return (jsxRuntimeExports.jsx("header", { "aria-busy": true, style: { height }, children: children }));
-};
-const Internal_HeaderWrapper = memo((props) => {
-    const { baseUrl, children } = props;
-    prefetchHeaderModule(baseUrl);
-    const placeholderRef = useRef(null);
-    useEffect(() => {
-        renderHeader(baseUrl, placeholderRef.current);
-    }, []);
-    return jsxRuntimeExports.jsx("div", { ref: placeholderRef, children: children });
-}, () => {
-    // Never ever rerender
-    return false;
-});
-const HeaderMicrofrontend = (props) => {
-    const { baseUrl } = props;
-    return (jsxRuntimeExports.jsx(Internal_HeaderWrapper, { baseUrl: baseUrl, children: jsxRuntimeExports.jsx(Internal_HeaderPlaceholder, {}) }));
-};
-
-const header = "_header_iau7o_45";
-const body = "_body_iau7o_62";
-const classes = {
-	header: header,
-	body: body
-};
-
-const {Suspense,useState} = await importShared('react');
-function App() {
-  const [count, setCount] = useState(0);
-  return /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: classes.header, children: /* @__PURE__ */ jsxRuntimeExports.jsx(HeaderMicrofrontend, { baseUrl: window.location.origin }) }),
-    /* @__PURE__ */ jsxRuntimeExports.jsxs("main", { className: classes.body, children: [
-      /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "This is the host app" }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Here's some generic content." }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Here's some generic content." }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Here's some generic content." }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Here's some generic content." }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "Here's some generic content." }),
-      /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: /* @__PURE__ */ jsxRuntimeExports.jsxs("button", { onClick: () => setCount((count2) => count2 + 1), children: [
-        "count is ",
-        count
-      ] }) })
-    ] }),
-    /* @__PURE__ */ jsxRuntimeExports.jsx("div", { className: classes.body, children: /* @__PURE__ */ jsxRuntimeExports.jsx(
-      Suspense,
-      {
-        fallback: /* @__PURE__ */ jsxRuntimeExports.jsxs(jsxRuntimeExports.Fragment, { children: [
-          /* @__PURE__ */ jsxRuntimeExports.jsx("h2", { children: "Placeholder" }),
-          /* @__PURE__ */ jsxRuntimeExports.jsx("p", { children: "The host app rendered this. It will be replaced once Microfrontend-two loads." })
-        ] })
-      }
-    ) })
-  ] });
-}
-
-const {StrictMode} = await importShared('react');
-createRoot(document.getElementById("root")).render(
-  /* @__PURE__ */ jsxRuntimeExports.jsx(StrictMode, { children: /* @__PURE__ */ jsxRuntimeExports.jsx(App, {}) })
-);
+export { importShared, getSharedFromLocal as importSharedLocal, getSharedFromRuntime as importSharedRuntime };
+//# sourceMappingURL=__federation_fn_import-D86225AB.js.map

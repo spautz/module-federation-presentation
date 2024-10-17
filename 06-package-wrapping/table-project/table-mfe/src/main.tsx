@@ -3,7 +3,7 @@ import { createRoot } from 'react-dom/client';
 
 import Table from './Table.tsx';
 
-function render(rootElement: HTMLElement) {
+function renderV1(rootElement: HTMLElement) {
   console.log('Rendering table-mfe: ', rootElement);
 
   createRoot(rootElement).render(
@@ -15,5 +15,5 @@ function render(rootElement: HTMLElement) {
 
 console.log('This is main.js in table-mfe');
 
-export { render };
-export default render;
+export { renderV1 };
+export default renderV1;
