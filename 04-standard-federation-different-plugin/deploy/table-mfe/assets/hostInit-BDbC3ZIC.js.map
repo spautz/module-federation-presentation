@@ -1,0 +1,1 @@
+{"version":3,"file":"hostInit-BDbC3ZIC.js","sources":["../../node_modules/__mf__virtual/table_microfrontend__mf_v__hostAutoInit__mf_v__.js"],"sourcesContent":["\n    import {init} from \"virtual:mf-REMOTE_ENTRY_ID\"\n    init()\n    "],"names":[],"mappings":";;AAEI,KAAI;","x_google_ignoreList":[0]}
