@@ -1,10 +1,10 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 
-import Table from './Table.tsx';
+import { Table } from './Table.tsx';
 
 function render(rootElement: HTMLElement) {
-  console.log('Rendering table-mfe: ', rootElement);
+  console.log('Rendering Table microfrontend: ', rootElement);
 
   createRoot(rootElement).render(
     <StrictMode>
@@ -16,4 +16,3 @@ function render(rootElement: HTMLElement) {
 console.log('This is main.js in table-mfe');
 
 export { render };
-export default render;

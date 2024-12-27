@@ -8,26 +8,22 @@ import packageJson from './package.json';
 export default defineConfig({
   mode: 'production',
   plugins: [
-    react(),
     federation({
-      filename: 'remoteEntry-header.js',
-      name: 'remote',
+      name: 'header_microfrontend',
+      filename: 'assets/remoteEntry-header.js',
       exposes: {
-        './render': './src/main.tsx',
-        './Header': './src/Header.tsx',
+        '.': './src/main.tsx',
       },
-      remotes: {},
       shared: {
         react: {
           requiredVersion: packageJson.dependencies.react,
-          singleton: true,
         },
         'react-dom': {
           requiredVersion: packageJson.dependencies.react,
-          singleton: true,
         },
       },
     }),
+    react(),
   ],
   define: { 'process.env.NODE_ENV': '"production"' },
   server: {

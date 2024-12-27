@@ -1,23 +1,24 @@
-import { Suspense, lazy, useState } from 'react';
+import { Suspense, /* lazy, */ useState } from 'react';
 
-// @ts-ignore
-// import HeaderMFE from 'header-mfe/Header';
-// @ts-ignore
-// import { HeaderMFE } from 'header-mfe';
-// @ts-ignore
-const HeaderMFE = lazy(() => import('header-mfe/Header'));
-// @ts-ignore
-const TableMFE = lazy(() => import('table-mfe/Table'));
+import { HeaderWrapper } from './HeaderMicrofrontend.js';
+// const { HeaderWrapper } = lazy(() => import('./HeaderMicrofrontend.js'));
+import { TableWrapper } from './TableMicrofrontend.js';
+// const { TableWrapper } = lazy(() => import('./TableMicrofrontend.js'));
 
 import classes from './App.module.css';
 
 function App() {
   const [count, setCount] = useState(0);
 
+  console.log('host app is rendering App: ', {
+    HeaderWrapper,
+    TableWrapper,
+  });
+
   return (
     <>
       <div className={classes.header}>
-        <HeaderMFE />
+        <HeaderWrapper />
       </div>
 
       <main className={classes.body}>
@@ -41,7 +42,7 @@ function App() {
             </>
           }
         >
-          <TableMFE />
+          <TableWrapper />
         </Suspense>
       </div>
     </>

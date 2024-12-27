@@ -1,28 +1,33 @@
-import { defineConfig } from 'vite';
-import federation from '@originjs/vite-plugin-federation';
+import { federation } from '@module-federation/vite';
 import react from '@vitejs/plugin-react';
+import { defineConfig } from 'vite';
+
+import packageJson from './package.json';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   mode: 'production',
   plugins: [
-    react(),
     federation({
-      name: 'table-mfe',
-      filename: 'remoteEntry-table.js',
+      name: 'table_microfrontend',
+      filename: 'assets/remoteEntry-table.js',
       exposes: {
-        './render': './src/main.tsx',
-        './Table': './src/Table.tsx',
+        '.': './src/main.tsx',
       },
       shared: {
-        react: { requiredVersion: '18' },
-        'react-dom': { requiredVersion: '18' },
+        react: {
+          requiredVersion: packageJson.dependencies.react,
+        },
+        'react-dom': {
+          requiredVersion: packageJson.dependencies.react,
+        },
       },
     }),
+    react(),
   ],
   define: { 'process.env.NODE_ENV': '"production"' },
   server: {
-    port: 3002,
+    port: 3001,
     strictPort: true,
   },
   build: {
@@ -31,6 +36,6 @@ export default defineConfig({
     minify: false,
     modulePreload: false,
     sourcemap: true,
-    target: 'esnext',
+    target: 'chrome89',
   },
 });

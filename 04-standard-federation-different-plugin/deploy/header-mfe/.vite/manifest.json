@@ -1,15 +1,25 @@
 {
-  "_Header-B8mXgM7P.js": {
-    "file": "assets/Header-B8mXgM7P.js",
-    "name": "Header",
-    "isDynamicEntry": true,
-    "imports": [
-      "_remote__loadShare__react__loadShare__-CcMP8jUA.js"
-    ]
-  },
   "__commonjsHelpers-BvryMGaU.js": {
     "file": "assets/_commonjsHelpers-BvryMGaU.js",
     "name": "_commonjsHelpers"
+  },
+  "_header_microfrontend__loadShare__react__loadShare__-Bse6SsZE.js": {
+    "file": "assets/header_microfrontend__loadShare__react__loadShare__-Bse6SsZE.js",
+    "name": "header_microfrontend__loadShare__react__loadShare__",
+    "imports": [
+      "_virtual_mf-exposes-B3VJjEIR.js",
+      "__commonjsHelpers-BvryMGaU.js",
+      "_virtual_mf-REMOTE_ENTRY_ID-D1JOLiNh.js"
+    ]
+  },
+  "_index-CMzR9zpY.js": {
+    "file": "assets/index-CMzR9zpY.js",
+    "name": "index",
+    "isDynamicEntry": true,
+    "imports": [
+      "__commonjsHelpers-BvryMGaU.js",
+      "_header_microfrontend__loadShare__react__loadShare__-Bse6SsZE.js"
+    ]
   },
   "_index-DGTCVKxC.js": {
     "file": "assets/index-DGTCVKxC.js",
@@ -19,60 +29,45 @@
       "__commonjsHelpers-BvryMGaU.js"
     ]
   },
-  "_index-edaE3sar.js": {
-    "file": "assets/index-edaE3sar.js",
-    "name": "index",
-    "isDynamicEntry": true,
+  "_virtual_mf-REMOTE_ENTRY_ID-D1JOLiNh.js": {
+    "file": "assets/virtual_mf-REMOTE_ENTRY_ID-D1JOLiNh.js",
+    "name": "virtual_mf-REMOTE_ENTRY_ID",
     "imports": [
-      "__commonjsHelpers-BvryMGaU.js",
-      "_remote__loadShare__react__loadShare__-CcMP8jUA.js"
+      "_virtual_mf-exposes-B3VJjEIR.js"
+    ],
+    "dynamicImports": [
+      "_index-DGTCVKxC.js",
+      "_index-CMzR9zpY.js"
     ]
   },
-  "_remote__loadShare__react__loadShare__-CcMP8jUA.js": {
-    "file": "assets/remote__loadShare__react__loadShare__-CcMP8jUA.js",
-    "name": "remote__loadShare__react__loadShare__",
-    "imports": [
-      "_virtual_mf-exposes-B4J2JYsc.js",
-      "__commonjsHelpers-BvryMGaU.js",
-      "_remote__mf_v__runtimeInit__mf_v__-CpIUrjKp.js"
-    ]
-  },
-  "_remote__mf_v__runtimeInit__mf_v__-CpIUrjKp.js": {
-    "file": "assets/remote__mf_v__runtimeInit__mf_v__-CpIUrjKp.js",
-    "name": "remote__mf_v__runtimeInit__mf_v__"
-  },
-  "_virtual_mf-exposes-B4J2JYsc.js": {
-    "file": "assets/virtual_mf-exposes-B4J2JYsc.js",
+  "_virtual_mf-exposes-B3VJjEIR.js": {
+    "file": "assets/virtual_mf-exposes-B3VJjEIR.js",
     "name": "virtual_mf-exposes",
     "dynamicImports": [
-      "src/main.tsx",
-      "_Header-B8mXgM7P.js"
+      "src/main.tsx"
     ]
   },
-  "node_modules/__mf__virtual/remote__mf_v__hostAutoInit__mf_v__.js": {
-    "file": "assets/hostInit-BmOER4hS.js",
+  "node_modules/__mf__virtual/header_microfrontend__mf_v__hostAutoInit__mf_v__.js": {
+    "file": "assets/hostInit-BuKnt2YV.js",
     "name": "hostInit",
-    "src": "node_modules/__mf__virtual/remote__mf_v__hostAutoInit__mf_v__.js",
+    "src": "node_modules/__mf__virtual/header_microfrontend__mf_v__hostAutoInit__mf_v__.js",
     "isEntry": true,
     "imports": [
-      "virtual:mf-REMOTE_ENTRY_ID",
-      "_remote__mf_v__runtimeInit__mf_v__-CpIUrjKp.js",
-      "_virtual_mf-exposes-B4J2JYsc.js"
+      "_virtual_mf-REMOTE_ENTRY_ID-D1JOLiNh.js",
+      "_virtual_mf-exposes-B3VJjEIR.js"
     ]
   },
   "src/main.tsx": {
-    "file": "assets/main-Bm_vXG3B.js",
+    "file": "assets/main-CqCnI6Xi.js",
     "name": "main",
     "src": "src/main.tsx",
     "isDynamicEntry": true,
     "imports": [
-      "_virtual_mf-exposes-B4J2JYsc.js",
-      "node_modules/__mf__virtual/remote__mf_v__hostAutoInit__mf_v__.js",
-      "_remote__mf_v__runtimeInit__mf_v__-CpIUrjKp.js",
-      "_Header-B8mXgM7P.js",
-      "_remote__loadShare__react__loadShare__-CcMP8jUA.js",
-      "__commonjsHelpers-BvryMGaU.js",
-      "virtual:mf-REMOTE_ENTRY_ID"
+      "_virtual_mf-exposes-B3VJjEIR.js",
+      "node_modules/__mf__virtual/header_microfrontend__mf_v__hostAutoInit__mf_v__.js",
+      "_virtual_mf-REMOTE_ENTRY_ID-D1JOLiNh.js",
+      "_header_microfrontend__loadShare__react__loadShare__-Bse6SsZE.js",
+      "__commonjsHelpers-BvryMGaU.js"
     ]
   },
   "style.css": {
@@ -80,26 +75,22 @@
     "src": "style.css"
   },
   "virtual:mf-REMOTE_ENTRY_ID": {
-    "file": "remoteEntry-header.js",
+    "file": "assets/remoteEntry-header.js",
     "name": "remoteEntry-header",
     "src": "virtual:mf-REMOTE_ENTRY_ID",
     "isEntry": true,
     "imports": [
-      "_remote__mf_v__runtimeInit__mf_v__-CpIUrjKp.js",
-      "_virtual_mf-exposes-B4J2JYsc.js"
-    ],
-    "dynamicImports": [
-      "_index-DGTCVKxC.js",
-      "_index-edaE3sar.js"
+      "_virtual_mf-REMOTE_ENTRY_ID-D1JOLiNh.js",
+      "_virtual_mf-exposes-B3VJjEIR.js"
     ]
   },
   "virtual:mf-exposes": {
-    "file": "assets/virtualExposes-CIp51eRj.js",
+    "file": "assets/virtualExposes-BRWhxfrq.js",
     "name": "virtualExposes",
     "src": "virtual:mf-exposes",
     "isEntry": true,
     "imports": [
-      "_virtual_mf-exposes-B4J2JYsc.js"
+      "_virtual_mf-exposes-B3VJjEIR.js"
     ]
   }
 }

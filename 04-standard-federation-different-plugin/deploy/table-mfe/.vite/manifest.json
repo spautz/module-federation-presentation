@@ -1,54 +1,96 @@
 {
-  "../node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/index.js?commonjs-entry": {
-    "file": "assets/__federation_shared_react-dom-81eQxVv-.js",
-    "name": "__federation_shared_react-dom",
-    "src": "../node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/index.js?commonjs-entry",
-    "isEntry": true,
+  "__commonjsHelpers-BvryMGaU.js": {
+    "file": "assets/_commonjsHelpers-BvryMGaU.js",
+    "name": "_commonjsHelpers"
+  },
+  "_index-DGTCVKxC.js": {
+    "file": "assets/index-DGTCVKxC.js",
+    "name": "index",
+    "isDynamicEntry": true,
     "imports": [
-      "../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js?commonjs-entry"
+      "__commonjsHelpers-BvryMGaU.js"
     ]
   },
-  "../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js?commonjs-entry": {
-    "file": "assets/__federation_shared_react-DYlhdcjt.js",
-    "name": "__federation_shared_react",
-    "src": "../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js?commonjs-entry",
-    "isEntry": true
+  "_index-D_9Agc1z.js": {
+    "file": "assets/index-D_9Agc1z.js",
+    "name": "index",
+    "isDynamicEntry": true,
+    "imports": [
+      "__commonjsHelpers-BvryMGaU.js",
+      "_table_microfrontend__loadShare__react__loadShare__-D5uhruaH.js"
+    ]
   },
-  "src/Table.tsx": {
-    "file": "assets/__federation_expose_Table-BKa7_reh.js",
-    "name": "__federation_expose_Table",
-    "src": "src/Table.tsx",
+  "_table_microfrontend__loadShare__react__loadShare__-D5uhruaH.js": {
+    "file": "assets/table_microfrontend__loadShare__react__loadShare__-D5uhruaH.js",
+    "name": "table_microfrontend__loadShare__react__loadShare__",
+    "imports": [
+      "_virtual_mf-exposes-BCSnz46C.js",
+      "__commonjsHelpers-BvryMGaU.js",
+      "_virtual_mf-REMOTE_ENTRY_ID-87HXnLMv.js"
+    ]
+  },
+  "_virtual_mf-REMOTE_ENTRY_ID-87HXnLMv.js": {
+    "file": "assets/virtual_mf-REMOTE_ENTRY_ID-87HXnLMv.js",
+    "name": "virtual_mf-REMOTE_ENTRY_ID",
+    "imports": [
+      "_virtual_mf-exposes-BCSnz46C.js"
+    ],
+    "dynamicImports": [
+      "_index-DGTCVKxC.js",
+      "_index-D_9Agc1z.js"
+    ]
+  },
+  "_virtual_mf-exposes-BCSnz46C.js": {
+    "file": "assets/virtual_mf-exposes-BCSnz46C.js",
+    "name": "virtual_mf-exposes",
+    "dynamicImports": [
+      "src/main.tsx"
+    ]
+  },
+  "node_modules/__mf__virtual/table_microfrontend__mf_v__hostAutoInit__mf_v__.js": {
+    "file": "assets/hostInit-BDbC3ZIC.js",
+    "name": "hostInit",
+    "src": "node_modules/__mf__virtual/table_microfrontend__mf_v__hostAutoInit__mf_v__.js",
     "isEntry": true,
     "imports": [
-      "virtual:__federation_fn_import",
-      "../node_modules/.pnpm/react@18.3.1/node_modules/react/index.js?commonjs-entry"
+      "_virtual_mf-REMOTE_ENTRY_ID-87HXnLMv.js",
+      "_virtual_mf-exposes-BCSnz46C.js"
     ]
   },
   "src/main.tsx": {
-    "file": "assets/__federation_expose_Render-D7Ko1xOp.js",
-    "name": "__federation_expose_Render",
+    "file": "assets/main-uFREZsJS.js",
+    "name": "main",
     "src": "src/main.tsx",
-    "isEntry": true,
+    "isDynamicEntry": true,
     "imports": [
-      "virtual:__federation_fn_import",
-      "src/Table.tsx",
-      "../node_modules/.pnpm/react-dom@18.3.1_react@18.3.1/node_modules/react-dom/index.js?commonjs-entry"
+      "_virtual_mf-exposes-BCSnz46C.js",
+      "node_modules/__mf__virtual/table_microfrontend__mf_v__hostAutoInit__mf_v__.js",
+      "_virtual_mf-REMOTE_ENTRY_ID-87HXnLMv.js",
+      "_table_microfrontend__loadShare__react__loadShare__-D5uhruaH.js",
+      "__commonjsHelpers-BvryMGaU.js"
     ]
   },
   "style.css": {
     "file": "assets/style-BpILT9y-.css",
     "src": "style.css"
   },
-  "virtual:__federation_fn_import": {
-    "file": "assets/__federation_fn_import-D86225AB.js",
-    "name": "__federation_fn_import",
-    "src": "virtual:__federation_fn_import",
-    "isEntry": true
-  },
-  "virtual:__remoteEntryHelper__remoteEntry-table.js": {
+  "virtual:mf-REMOTE_ENTRY_ID": {
     "file": "assets/remoteEntry-table.js",
     "name": "remoteEntry-table",
-    "src": "virtual:__remoteEntryHelper__remoteEntry-table.js",
-    "isEntry": true
+    "src": "virtual:mf-REMOTE_ENTRY_ID",
+    "isEntry": true,
+    "imports": [
+      "_virtual_mf-REMOTE_ENTRY_ID-87HXnLMv.js",
+      "_virtual_mf-exposes-BCSnz46C.js"
+    ]
+  },
+  "virtual:mf-exposes": {
+    "file": "assets/virtualExposes-RISZAQ0F.js",
+    "name": "virtualExposes",
+    "src": "virtual:mf-exposes",
+    "isEntry": true,
+    "imports": [
+      "_virtual_mf-exposes-BCSnz46C.js"
+    ]
   }
 }

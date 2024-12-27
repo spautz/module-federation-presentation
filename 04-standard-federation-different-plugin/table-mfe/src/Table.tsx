@@ -3,6 +3,8 @@ import { useState } from 'react';
 import classes from './Table.module.css';
 
 function Table() {
+  console.log('Table()', useState);
+
   const [count, setCount] = useState(0);
 
   return (
@@ -31,4 +33,4 @@ function Table() {
   );
 }
 
-export default Table;
+export { Table };
