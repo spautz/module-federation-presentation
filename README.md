@@ -5,7 +5,9 @@ This repo contains demos for a Frontend Guild talk, planned for October 17, 2024
 Topics include microfrontends, module federation, ES Modules in general, import maps, and especially some pitfalls and
 failure points to avoid when using these techniques.
 
-[Supporting content and diagrams.](./PRESENTATION)
+[Script & speaking notes](./SPEAKING_NOTES.md)
+
+[Supporting content and diagrams](./PRESENTATION.md)
 
 ## Summary
 
